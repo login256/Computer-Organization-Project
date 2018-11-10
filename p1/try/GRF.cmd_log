@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p1/try/GRF.xst" -ofn "C:/Users/lyt/Documents/project/co/p1/try/GRF.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p1/try/GRF.xst" -ofn "C:/Users/lyt/Documents/project/co/p1/try/GRF.syr" 

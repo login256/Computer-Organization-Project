@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/adder/adder.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/adder/adder.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/adder/adder.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/adder/adder.syr" 

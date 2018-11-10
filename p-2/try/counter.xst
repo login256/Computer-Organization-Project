@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/lyt/Documents/project/co/p-2/try/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/lyt/Documents/project/co/p-2/try/xst"
+elaborate
+-ifn counter.prj
+-ifmt mixed

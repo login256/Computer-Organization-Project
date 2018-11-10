@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/lyt/Documents/project/co/p1/splitter/splitter_tb_isim_beh.exe" -prj "C:/Users/lyt/Documents/project/co/p1/splitter/splitter_tb_beh.prj" "work.splitter_tb" "work.glbl" 

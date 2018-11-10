@@ -1,0 +1,4 @@
+vhdtdtfi -lib work C:/Users/lyt/Documents/project/co/p1/ext/try.v -lang verilog -prj ext -o try.spl -module try -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7 try.spl C:/Users/lyt/Documents/project/co/p1/ext/try.sym 
+vhdtdtfi -lang verilog -prj ext -o C:/Users/lyt/Documents/project/co/p1/ext/try.tfi -lib work C:/Users/lyt/Documents/project/co/p1/ext//try.v -module try -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p1/ext/try.xst" -ofn "C:/Users/lyt/Documents/project/co/p1/ext/try.syr" 

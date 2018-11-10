@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/try/counter.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/try/counter.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/try/counter.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/try/counter.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/try/counter.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/try/counter.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -bm counter_tb.bmm -p xa3s1500-fgg456-4 counter.ngc counter.ngd  
+map -intstyle ise -p xa3s1500-fgg456-4 -cm area -ir off -pr off -c 100 -o counter_map.ncd counter.ngd counter.pcf 
+par -w -intstyle ise -ol high -t 1 counter_map.ncd counter.ncd counter.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml counter.twx counter.ncd -o counter.twr counter.pcf 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim counter.ngc counter_synthesis.v 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim counter.ngc counter_synthesis.v 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/try/counter.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/try/counter.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p-2/try/counter.xst" -ofn "C:/Users/lyt/Documents/project/co/p-2/try/counter.syr" 
+netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim counter.ngc counter_synthesis.v 
