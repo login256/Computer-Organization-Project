@@ -1,0 +1,10 @@
+lui $t1,100
+ori $t1,100
+ori $t2,123
+ori $t3,2
+ori $t4,65535
+lui $t5,65535
+addu $t6,$t4,$t5
+subu $t7,$t5,$t4
+addu $t0,$t1,$t1
+sll $t3,$t3,1
