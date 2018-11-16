@@ -1,0 +1,395 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: mips.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mips.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mips"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : mips
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\component\regfile.v" into library work
+Parsing module <regfile>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\component\PCreg.v" into library work
+Parsing module <PCreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\component\alu.v" into library work
+Parsing module <alu>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" into library work
+Parsing module <datapath>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\memory\instrmemory.v" into library work
+Parsing module <instrmemory>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\memory\datamemory.v" into library work
+Parsing module <datamemory>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" into library work
+Parsing module <cpu>.
+WARNING:HDLCompiler:751 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 40: Redeclaration of ansi port DMWE is not allowed
+WARNING:HDLCompiler:1335 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 24: Port Instr must not be declared to be an array
+WARNING:HDLCompiler:1335 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 25: Port DataR must not be declared to be an array
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" into library work
+Parsing module <mips>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 30: Port clk is not connected to this instance
+
+Elaborating module <mips>.
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 43: Port Instr is not connected to this instance
+
+Elaborating module <cpu>.
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 50: Port clk is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 54: Port SrcA is not connected to this instance
+
+Elaborating module <datapath>.
+
+Elaborating module <PCreg>.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 45: Assignment to curPC ignored, since the identifier is never used
+
+Elaborating module <regfile>.
+
+Elaborating module <alu>.
+WARNING:HDLCompiler:1499 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\component\alu.v" Line 21: Empty module <alu> remains a black box.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 39: Net <nPC[31]> does not have a driver.
+WARNING:HDLCompiler:552 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 50: Input port clk is not connected on this instance
+WARNING:HDLCompiler:552 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" Line 54: Input port SrcA[31] is not connected on this instance
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 32: Net <Br> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 33: Net <Jump> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 34: Net <PCImmSrc> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 35: Net <Reg3Src> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 36: Net <DatatoReg> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 37: Net <RegWE> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 38: Net <ALUSrc> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 39: Net <ALUCtrl[7]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 41: Net <ExtCtrl[1]> does not have a driver.
+WARNING:HDLCompiler:552 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" Line 43: Input port Instr[31] is not connected on this instance
+
+Elaborating module <datamemory>.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 38: Assignment to DataR ignored, since the identifier is never used
+
+Elaborating module <instrmemory>.
+Reading initialization file \":\Users\lyt\Documents\project\co\p4\mips\memory\/code.txt\".
+WARNING:HDLCompiler:1670 - "C:\Users\lyt\Documents\project\co\p4\mips\memory\instrmemory.v" Line 32: Signal <ins> in initial block is partially initialized.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 44: Assignment to Instr ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 26: Net <DMAdr[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 27: Net <DataW[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 28: Net <DMWE> does not have a driver.
+WARNING:HDLCompiler:552 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" Line 30: Input port clk is not connected on this instance
+WARNING:Xst:2972 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 42. All outputs of instance <PCreg> of block <PCreg> are unconnected in block <datapath>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 50. All outputs of instance <RF> of block <regfile> are unconnected in block <datapath>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 33. All outputs of instance <DM> of block <datamemory> are unconnected in block <mips>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 42. All outputs of instance <IM> of block <instrmemory> are unconnected in block <mips>. Underlying logic will be removed.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mips>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p4\mips\mips.v".
+WARNING:Xst:2898 - Port 'Instr', unconnected in block instance 'CPU', is tied to GND.
+WARNING:Xst:2898 - Port 'DataR', unconnected in block instance 'CPU', is tied to GND.
+WARNING:Xst:2898 - Port 'clk', unconnected in block instance 'CPU', is tied to GND.
+WARNING:Xst:2898 - Port 'reset', unconnected in block instance 'CPU', is tied to GND.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 30: Output port <DataW> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 30: Output port <PC> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 30: Output port <DMAdr> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 30: Output port <DMWE> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 33: Output port <RD> of the instance <DM> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\mips.v" line 42: Output port <Instr> of the instance <IM> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <DMAdr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <PC> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DataW> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DMWE> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <mips> synthesized.
+
+Synthesizing Unit <cpu>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v".
+WARNING:Xst:2898 - Port 'Instr', unconnected in block instance 'DP', is tied to GND.
+WARNING:Xst:2898 - Port 'DMData', unconnected in block instance 'DP', is tied to GND.
+WARNING:Xst:647 - Input <Instr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <DataR> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" line 43: Output port <DMAdr> of the instance <DP> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\cpu.v" line 43: Output port <PC> of the instance <DP> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <DataW> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ALUCtrl> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ExtCtrl> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <PC> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DMAdr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <Br> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <Jump> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <PCImmSrc> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <Reg3Src> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DatatoReg> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <RegWE> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <ALUSrc> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <DMWE> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <cpu> synthesized.
+
+Synthesizing Unit <datapath>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v".
+WARNING:Xst:2898 - Port 'A1', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'A2', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'A3', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'WD', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'clk', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'reset', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:2898 - Port 'WE', unconnected in block instance 'RF', is tied to GND.
+WARNING:Xst:647 - Input <ALUCtrl> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ExtCtrl> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Instr> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <DMData> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Br> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Jump> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <PCImmSrc> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Reg3Src> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <DatatoReg> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <RegWE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <ALUSrc> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 42: Output port <PC> of the instance <PCreg> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 50: Output port <RD1> of the instance <RF> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 50: Output port <RD2> of the instance <RF> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 54: Output port <ALUout> of the instance <ALU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p4\mips\cpu\datapath\datapath.v" line 54: Output port <zero> of the instance <ALU> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <DMAdr> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <nPC> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <PC> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <datapath> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <CPU> is unconnected in block <mips>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <mips> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mips, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mips.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# Others                           : 1
+#      alu                         : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:      0
+   Number with an unused Flip Flop:       0  out of      0         
+   Number with an unused LUT:             0  out of      0         
+   Number of fully used LUT-FF pairs:     0  out of      0         
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                           2
+ Number of bonded IOBs:                   0  out of    102     0%  
+
+Specific Feature Utilization:
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.91 secs
+ 
+--> 
+
+Total memory usage is 4882088 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   80 (   0 filtered)
+Number of infos    :   13 (   0 filtered)
+

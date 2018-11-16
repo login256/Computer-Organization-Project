@@ -1,0 +1,2 @@
+verilog work "datapath/element/PCreg.v"
+verilog work "datapath/datapath.v"

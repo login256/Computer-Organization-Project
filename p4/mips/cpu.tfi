@@ -1,0 +1,11 @@
+
+
+
+// Instantiate the module
+cpu instance_name (
+    .clk(clk), 
+    .reset(reset), 
+    .Instr(Instr)
+    );
+
+

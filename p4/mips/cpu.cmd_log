@@ -1,0 +1,13 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/cpu.v -lang verilog -prj mips -o cpu.spl -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 cpu.spl C:/Users/lyt/Documents/project/co/p4/mips/cpu.sym 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/cpu.v -lang verilog -prj mips -o cpu.spl -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 cpu.spl C:/Users/lyt/Documents/project/co/p4/mips/cpu.sym 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/cpu.v -lang verilog -prj mips -o cpu.spl -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 cpu.spl C:/Users/lyt/Documents/project/co/p4/mips/cpu.sym 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
