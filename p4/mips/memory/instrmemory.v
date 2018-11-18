@@ -23,13 +23,16 @@ module instrmemory(
     output [31:0] Instr
     );
 	
-	reg [31:0] ins[1023:0];
+	parameter adrbits=10;
+	parameter MAXN=(1<<adrbits);
 	
-	assign Instr=ins[PC[11:2]];
+	reg [31:0] ins[MAXN-1:0];
+	
+	assign Instr=ins[PC[2+adrbits-1:2]];
 	
 	initial
 	begin
-		$readmemh("code.txt",ins,0,1023);
+		$readmemh("./memory/code.txt",ins,0,MAXN-1);
 	end
 
 endmodule

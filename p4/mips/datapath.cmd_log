@@ -1,1 +1,0 @@
-vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/datapath.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/datapath//datapath.v -module datapath -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

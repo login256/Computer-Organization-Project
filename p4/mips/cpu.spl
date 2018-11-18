@@ -1,9 +1,0 @@
-[Inputs]
-clk
-reset
-Instr
-[Outputs]
-[BiDir]
-[ATTRIBUTES]
-VeriModel cpu
-

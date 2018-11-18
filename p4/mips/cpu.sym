@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="cpu">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2018-11-16T15:54:21</timestamp>
+    <timestamp>2018-11-17T17:2:35</timestamp>
     <attr value="cpu" name="VeriModel" />
     <pin polarity="Input" x="0" y="-160" name="clk" />
     <pin polarity="Input" x="0" y="-96" name="reset" />

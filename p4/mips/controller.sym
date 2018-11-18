@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="controller">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2018-11-17T16:49:45</timestamp>
+    <attr value="controller" name="VeriModel" />
+    <pin polarity="Input" x="0" y="-672" name="Opcode(31:0)" />
+    <pin polarity="Input" x="0" y="-32" name="Funct(31:0)" />
+    <pin polarity="Output" x="448" y="-672" name="Br" />
+    <pin polarity="Output" x="448" y="-608" name="Jump" />
+    <pin polarity="Output" x="448" y="-544" name="JImmSel" />
+    <pin polarity="Output" x="448" y="-480" name="RegA3Sel" />
+    <pin polarity="Output" x="448" y="-416" name="SaveRA" />
+    <pin polarity="Output" x="448" y="-352" name="RegWE" />
+    <pin polarity="Output" x="448" y="-288" name="ALUBSel" />
+    <pin polarity="Output" x="448" y="-224" name="DMWE" />
+    <pin polarity="Output" x="448" y="-160" name="DatatoReg(1:0)" />
+    <pin polarity="Output" x="448" y="-96" name="EXTCtrl(1:0)" />
+    <pin polarity="Output" x="448" y="-32" name="ALUCtrl(7:0)" />
+    <graph>
+        <rect width="320" x="64" y="-704" height="704" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="224" y="-712" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-672" type="pin Opcode(31:0)" />
+        <rect width="64" x="0" y="-684" height="24" />
+        <line x2="0" y1="-672" y2="-672" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin Funct(31:0)" />
+        <rect width="64" x="0" y="-44" height="24" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-672" type="pin Br" />
+        <line x2="448" y1="-672" y2="-672" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-608" type="pin Jump" />
+        <line x2="448" y1="-608" y2="-608" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-544" type="pin JImmSel" />
+        <line x2="448" y1="-544" y2="-544" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-480" type="pin RegA3Sel" />
+        <line x2="448" y1="-480" y2="-480" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-416" type="pin SaveRA" />
+        <line x2="448" y1="-416" y2="-416" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-352" type="pin RegWE" />
+        <line x2="448" y1="-352" y2="-352" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-288" type="pin ALUBSel" />
+        <line x2="448" y1="-288" y2="-288" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-224" type="pin DMWE" />
+        <line x2="448" y1="-224" y2="-224" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-160" type="pin DatatoReg(1:0)" />
+        <rect width="64" x="384" y="-172" height="24" />
+        <line x2="448" y1="-160" y2="-160" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-96" type="pin EXTCtrl(1:0)" />
+        <rect width="64" x="384" y="-108" height="24" />
+        <line x2="448" y1="-96" y2="-96" x1="384" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="376" y="-32" type="pin ALUCtrl(7:0)" />
+        <rect width="64" x="384" y="-44" height="24" />
+        <line x2="448" y1="-32" y2="-32" x1="384" />
+    </graph>
+</symbol>

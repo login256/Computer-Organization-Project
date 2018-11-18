@@ -1,3 +1,0 @@
-verilog work "cpu/datapath/component/PCreg.v"
-verilog work "cpu/datapath/datapath.v"
-verilog work "cpu/cpu.v"
