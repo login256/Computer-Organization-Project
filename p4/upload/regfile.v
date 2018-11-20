@@ -31,15 +31,15 @@ module regfile(
 	input [31:0]PC
     );
 	
-	reg [31:0] rf [31:0];
+	reg [31:0] rf [31:1];
 	
-	assign RD1=rf[A1];
-	assign RD2=rf[A2];
+	assign RD1= A1!=0 ? rf[A1] : 32'h0;
+	assign RD2= A2!=0 ? rf[A2] : 32'h0;
 	integer i;
 	
 	initial
 	begin
-		for(i=0;i<=31;i=i+1)
+		for(i=1;i<=31;i=i+1)
 		begin
 			rf[i]=32'h0;
 		end
@@ -49,7 +49,7 @@ module regfile(
 	begin
 		if(reset)
 		begin
-			for(i=0;i<=31;i=i+1)
+			for(i=1;i<=31;i=i+1)
 			begin
 				rf[i]<=32'h0;
 			end

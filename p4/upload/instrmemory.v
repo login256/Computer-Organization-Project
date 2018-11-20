@@ -30,8 +30,14 @@ module instrmemory(
 	
 	assign Instr=ins[PC[2+adrbits-1:2]];
 	
+	integer i;
+	
 	initial
 	begin
+		for(i=0;i<MAXN;i=i+1)
+		begin
+			ins[i]=32'h0;
+		end
 		$readmemh("code.txt",ins,0,MAXN-1);
 	end
 
