@@ -32,7 +32,9 @@ module controller(
 	output ALUBSel,
 	output DMWE,
 	output [1:0] EXTCtrl,
-	output [7:0] ALUCtrl
+	output [7:0] ALUCtrl,
+	output [1:0] DMWLen,
+	output [2:0] SaveCtrl
     );
 	
 	reg [19:0]controls;

@@ -32,3 +32,12 @@
 `define aluLe	`aluWidth'b00001011
 `define aluGt	`aluWidth'b00001100
 `define aluGe	`aluWidth'b00001101
+
+//SaveCtrl define
+`define saveword	3'b000
+`define savehalf	3'b001
+`define savebyte	3'b010
+`define savewordleft	3'b011
+`define savewordright	3'b100
+
+//LoadCtrl define

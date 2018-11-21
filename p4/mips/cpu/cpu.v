@@ -26,7 +26,8 @@ module cpu(
 	output [31:0] PC,
 	output [31:0] DMAdr,
 	output DMWE,
-	output [31:0] DMDataW
+	output [31:0] DMDataW,
+	output [1:0] DMWLen
     );
 	
 	wire IsBr;

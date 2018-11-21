@@ -35,7 +35,8 @@ module mips(
 		.PC(PC), 
 		.DMAdr(DMAdr), 
 		.DMWE(DMWE), 
-		.DMDataW(DMDataW)
+		.DMDataW(DMDataW),
+		.DMWLen(DMWLen)
     );
 
 
@@ -45,6 +46,7 @@ module mips(
 		.reset(reset),
 		.A(DMAdr),
 		.WD(DMDataW),
+		.WLen(DMWLen),
 		.RD(DMDataR),
 		.WE(DMWE),
 		.PC(PC)
