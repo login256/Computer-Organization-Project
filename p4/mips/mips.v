@@ -26,6 +26,7 @@ module mips(
 	wire [31:0] DMAdr, PC;
 	wire [31:0] DMDataW, DMDataR, Instr;
 	wire DMWE;
+	wire [1:0] DMWLen;
 	
 	cpu CPU(
 		.clk(clk), 

@@ -26,6 +26,7 @@ module mips(
 	wire [31:0] DMAdr, PC;
 	wire [31:0] DMDataW, DMDataR, Instr;
 	wire DMWE;
+	wire [1:0] DMWLen;
 	
 	cpu CPU(
 		.clk(clk), 
@@ -35,7 +36,8 @@ module mips(
 		.PC(PC), 
 		.DMAdr(DMAdr), 
 		.DMWE(DMWE), 
-		.DMDataW(DMDataW)
+		.DMDataW(DMDataW),
+		.DMWLen(DMWLen)
     );
 
 
@@ -45,6 +47,7 @@ module mips(
 		.reset(reset),
 		.A(DMAdr),
 		.WD(DMDataW),
+		.WLen(DMWLen),
 		.RD(DMDataR),
 		.WE(DMWE),
 		.PC(PC)

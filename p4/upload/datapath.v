@@ -33,7 +33,9 @@ module datapath(
 	input [7:0] ALUCtrl,
     input [31:0] Instr,
 	input [31:0] DMDataR,
+	input [2:0] SLCtrl,
 	output [31:0] DMAdr,
+	output [1:0] DMWLen,
 	output [31:0] DMDataW,
 	output [31:0] PC
     );
@@ -65,12 +67,18 @@ module datapath(
 	wire [4:0] ALUShamt;
 	wire ALUzero;
 	
+	//SC wire
+	wire [31:0] SCDin,SCDout,SCAdrin,SCAdrout;
+	wire [1:0] SCbytesel;
+	wire [1:0] SCWLen;
+	
 	//BC wire
 	wire Br;
 	
 //DM
-	assign DMAdr=ALUResult;
-	assign DMDataW=GRFRD2;
+	assign DMAdr=SCAdrout;
+	assign DMDataW=SCDout;
+	assign DMWLen=SCWLen;
 	
 //next PC
 	
@@ -148,6 +156,20 @@ module datapath(
 		.ALUResult(ALUResult), 
 		.zero(ALUzero)
 	);
+
+//SC
+	
+	assign SCDin=GRFRD2;
+	assign SCAdrin=ALUResult;
+	
+	savecalc SC (
+    .Din(SCDin), 
+    .Adrin(SCAdrin), 
+    .SLCtrl(SLCtrl), 
+    .Dout(SCDout),
+	.Adrout(SCAdrout),
+    .WLen(SCWLen)
+    );
 
 //BC
 	assign Br=IsBr&(~ALUzero);

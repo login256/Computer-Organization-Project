@@ -33,13 +33,12 @@ module controller(
 	output DMWE,
 	output [1:0] EXTCtrl,
 	output [7:0] ALUCtrl,
-	output [1:0] DMWLen,
-	output [2:0] SaveCtrl
+	output [2:0] SLCtrl
     );
 	
-	reg [19:0]controls;
+	reg [22:0]controls;
 	
-	assign {IsBr,Jump,JType,RegA3Sel,SaveRA,DatatoReg[1:0],RegWE,ALUBSel,DMWE,EXTCtrl[1:0],ALUCtrl[7:0]}=controls;
+	assign {IsBr,Jump,JType,RegA3Sel,SaveRA,DatatoReg[1:0],RegWE,ALUBSel,DMWE,EXTCtrl[1:0],ALUCtrl[7:0],SLCtrl[2:0]}=controls;
 	
 	always@*
 	begin
@@ -50,13 +49,15 @@ module controller(
 			case(Funct)
 			
 			`functADDU:
-				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluAdd};
+				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluAdd,3'b0};
 			`functSUBU:
-				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluSub};
+				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluSub,3'b0};
 			`functSLL:
-				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluSll};
+				controls<={12'b0_0_0_0_0_00_1_0_0_00,`aluSll,3'b0};
 			`functJR:
-				controls<={12'b0_1_0_0_0_00_0_0_0_00,8'b0};
+				controls<={12'b0_1_0_0_0_00_0_0_0_00,8'b0,3'b0};
+			`functJALR:
+				controls<={12'b0_1_0_0_0_10_1_0_0_00,8'b0,3'b0};
 				
 			default:
 				controls<=20'b0;
@@ -64,20 +65,30 @@ module controller(
 		end
 		
 		`opcodeORI:
-			controls<={12'b0_0_0_1_0_00_1_1_0_00,`aluOr};
+			controls<={12'b0_0_0_1_0_00_1_1_0_00,`aluOr,3'b0};
 		`opcodeLW:
-			controls<={12'b0_0_0_1_0_01_1_1_0_01,`aluAdd};
+			controls<={12'b0_0_0_1_0_01_1_1_0_01,`aluAdd,`slword};
 		`opcodeSW:
-			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd};
+			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd,`slword};
 		`opcodeBEQ:
-			controls<={12'b1_0_0_0_0_00_0_0_0_01,`aluEq};
+			controls<={12'b1_0_0_0_0_00_0_0_0_01,`aluEq,3'b0};
 		`opcodeLUI:
-			controls<={12'b0_0_0_1_0_00_1_1_0_10,`aluOr};
+			controls<={12'b0_0_0_1_0_00_1_1_0_10,`aluOr,3'b0};
 		`opcodeJAL:
-			controls<={12'b0_1_1_0_1_10_1_0_0_00,8'b0};
-			
+			controls<={12'b0_1_1_0_1_10_1_0_0_00,8'b0,3'b0};
+		`opcodeJ:
+			controls<={12'b0_1_1_0_0_00_0_0_0_00,8'b0,3'b0};
+		`opcodeSH:
+			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd,`slhalf};
+		`opcodeSB:
+			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd,`slbyte};
+		`opcodeSWL:
+			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd,`slwordleft};
+		`opcodeSWR:
+			controls<={12'b0_0_0_0_0_00_0_1_1_01,`aluAdd,`slwordright};
+		
 		default:
-			controls<=20'b0;
+			controls<=25'b0;
 		endcase
 	end
 

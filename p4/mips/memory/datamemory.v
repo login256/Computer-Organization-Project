@@ -58,7 +58,6 @@ module datamemory(
 		begin
 			if(WE)
 			begin
-				$display("@%h: *%h <= %h",PC, A, WD);
 				if(by==0&&WLen==0)
 					mem[sa][7:0]=WD[7:0];
 				else if(by==0&&WLen==1)
@@ -81,6 +80,7 @@ module datamemory(
 					mem[sa][31:24]=WD[31:24];
 				else
 					$display("????");
+				$display("@%h: *%h <= %h",PC, A, mem[sa]);
 			end
 		end
 	end

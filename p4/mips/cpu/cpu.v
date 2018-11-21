@@ -38,8 +38,9 @@ module cpu(
 	wire [1:0] DatatoReg;
 	wire RegWE;
 	wire ALUBSel;
-	wire [1:0]EXTCtrl;
+	wire [1:0] EXTCtrl;
 	wire [7:0] ALUCtrl;
+	wire [2:0] SLCtrl;
 	
 	datapath DP (
     .clk(clk), 
@@ -55,10 +56,12 @@ module cpu(
     .EXTCtrl(EXTCtrl), 
     .ALUCtrl(ALUCtrl), 
     .Instr(Instr), 
-    .DMDataR(DMDataR), 
+    .DMDataR(DMDataR),
+	.SLCtrl(SLCtrl),
     .DMAdr(DMAdr), 
-    .PC(PC),
-	.DMDataW(DMDataW)
+	.DMWLen(DMWLen),
+	.DMDataW(DMDataW),
+    .PC(PC)
     );
 
 	wire [5:0] Opcode,Funct;
@@ -77,9 +80,10 @@ module cpu(
     .DatatoReg(DatatoReg), 
     .RegWE(RegWE), 
     .ALUBSel(ALUBSel), 
-    .DMWE(DMWE), 
+    .DMWE(DMWE),
     .EXTCtrl(EXTCtrl), 
-    .ALUCtrl(ALUCtrl)
+    .ALUCtrl(ALUCtrl),
+	.SLCtrl(SLCtrl)
     );
 	
 endmodule
