@@ -14,6 +14,13 @@
 `define opcodeSB 6'b101000
 `define opcodeSWL 6'b101010
 `define opcodeSWR 6'b101110
+`define opcodeLH 6'b100001
+`define opcodeLB 6'b100000
+`define opcodeLWL 6'b100010
+`define opcodeLWR 6'b100110
+`define opcodeLHU 6'b100101
+`define opcodeLBU 6'b100100
+
 //funct:
 `define functADDU 6'b100001
 `define functSUBU 6'b100011
@@ -44,3 +51,5 @@
 `define slbyte	3'b010
 `define slwordleft	3'b011
 `define slwordright	3'b100
+`define slhalfu	3'b101
+`define slbyteu	3'b110

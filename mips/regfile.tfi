@@ -1,0 +1,18 @@
+
+
+
+// Instantiate the module
+regfile instance_name (
+    .clk(clk), 
+    .reset(reset), 
+    .A1(A1), 
+    .A2(A2), 
+    .A3(A3), 
+    .WD(WD), 
+    .WE(WE), 
+    .RD1(RD1), 
+    .RD2(RD2), 
+    .PC(PC)
+    );
+
+

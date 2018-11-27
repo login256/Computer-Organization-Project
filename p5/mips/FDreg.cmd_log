@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p5/mips/FDreg.xst" -ofn "C:/Users/lyt/Documents/project/co/p5/mips/FDreg.syr" 

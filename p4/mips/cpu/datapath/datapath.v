@@ -72,6 +72,10 @@ module datapath(
 	wire [1:0] SCbytesel;
 	wire [1:0] SCWLen;
 	
+	//LC wire
+	wire [31:0] LCmemD,LCGRFD,LCDout;
+	wire [1:0] LCbytesel;
+	
 	//BC wire
 	wire Br;
 	
@@ -116,7 +120,7 @@ module datapath(
 	mux2#5 mux_RegA3Sel(rd,rt,RegA3Sel,muxRegA3Sel_Out);
 	mux2#5 mux_SaveRA(muxRegA3Sel_Out,5'h1f,SaveRA,GRFA3);	//GRFA3
 	
-	mux4#32 mux_DatatoReg(ALUResult,DMDataR,PCAdd4,32'd0,DatatoReg,GRFWD);	//GRFWD
+	mux4#32 mux_DatatoReg(ALUResult,LCDout,PCAdd4,32'd0,DatatoReg,GRFWD);	//GRFWD
 	
 	regfile GRF (
 		.clk(clk), 
@@ -170,6 +174,21 @@ module datapath(
 	.Adrout(SCAdrout),
     .WLen(SCWLen)
     );
+	
+//LC
+	
+	assign LCmemD=DMDataR;
+	assign LCGRFD=GRFRD2;
+	assign LCbytesel=ALUResult[1:0];
+
+	loadcalc LC (
+		.memD(LCmemD), 
+		.GRFD(LCGRFD), 
+		.bytesel(LCbytesel), 
+		.SLCtrl(SLCtrl), 
+		.Dout(LCDout)
+    );
+
 
 //BC
 	assign Br=IsBr&(~ALUzero);

@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+IMreg instance_name (
+    .clk(clk), 
+    .reset(reset), 
+    .Din(Din), 
+    .Dout(Dout)
+    );
+
+

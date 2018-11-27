@@ -25,7 +25,7 @@ module ext(
     );
 	
 	assign Result=	EXTCtrl==2'b00 ? {{16{1'b0}},Imm} :
-					EXTCtrl==2'b01 ? {{16{Imm[15]}},Imm} :
+					EXTCtrl==2'b01 ? {{16{Imm[15:15]}},Imm} :
 					EXTCtrl==2'b10 ? {Imm,{16{1'b0}}} :
 					{{16{1'b1}},Imm};
 

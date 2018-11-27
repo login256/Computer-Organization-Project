@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/regfile.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/datapath/component//regfile.v -module regfile -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/mips/regfile.tfi -lib work C:/Users/lyt/Documents/project/co/mips/cpu/datapath/component//regfile.v -module regfile -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

@@ -1,0 +1,65 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/lyt/Documents/project/co/mips/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/lyt/Documents/project/co/mips/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: regfile.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" into library work
+Parsing module <regfile>.
+ERROR:HDLCompiler:806 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 49: Syntax error near ",".
+ERROR:HDLCompiler:806 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 77: Syntax error near "+".
+ERROR:HDLCompiler:345 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 75: Declarations not allowed in unnamed block
+ERROR:HDLCompiler:1059 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 49: queue_PC is an unknown type
+ERROR:HDLCompiler:257 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 53: Cannot assign to non-variable cnt
+ERROR:HDLCompiler:1660 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 53: Procedural assignment to a non-register cnt is not permitted, left-hand side should be reg/integer/time/genvar
+ERROR:HDLCompiler:69 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 54: <queue_ti> is not declared.
+ERROR:HDLCompiler:69 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 56: <queue_PC> is not declared.
+ERROR:HDLCompiler:69 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 57: <fornt> is not declared.
+ERROR:HDLCompiler:1059 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 77: back is an unknown type
+ERROR:HDLCompiler:69 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 78: <queue_ti> is not declared.
+ERROR:HDLCompiler:69 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 79: <queue_PC> is not declared.
+ERROR:HDLCompiler:598 - "C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v" Line 21: Module <regfile> ignored due to previous errors.
+Verilog file C:\Users\lyt\Documents\project\co\mips\cpu\datapath\component\regfile.v ignored due to errors
+--> 
+
+Total memory usage is 4532816 kilobytes
+
+Number of errors   :   13 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
