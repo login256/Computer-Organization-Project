@@ -1,3 +1,0 @@
-xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p5/mips/ATDecoder.xst" -ofn "C:/Users/lyt/Documents/project/co/p5/mips/ATDecoder.syr" 
-xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p5/mips/ATDecoder.xst" -ofn "C:/Users/lyt/Documents/project/co/p5/mips/ATDecoder.syr" 
-vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p5/mips/ATDecoder.tfi -lib work C:/Users/lyt/Documents/project/co/p5/mips/cpu/controller/component//ATDecoder.v -module ATDecoder -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

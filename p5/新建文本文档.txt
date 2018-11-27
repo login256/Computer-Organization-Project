@@ -1,0 +1,4 @@
+命名方式：	一般情况： 以 “驱动端_变量名”命名
+		DP中： 以“级别_变量名”命名
+
+需要更改define的文件 ：main_controller ATDecoder alu savecalc loadcalc instrmemory

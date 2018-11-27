@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    00:05:24 11/16/2018 
+// Create Date:    23:57:33 11/16/2018 
 // Design Name: 
-// Module Name:    PCreg 
+// Module Name:    instrmemory 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,30 +18,27 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PCmem(
-	input clk,
-	input reset,
-	input EN,
-    input [31:0] NPC,
-    output [31:0] PC
+module instrmemory(
+    input [31:0] PC,
+    output [31:0] Instr
     );
 	
-	reg [31:0] PCreg;
+	parameter adrbits=10;
+	parameter MAXN=(1<<adrbits);
 	
-	assign PC=PCreg;
+	reg [31:0] ins[MAXN-1:0];
+	
+	assign Instr=ins[PC[2+adrbits-1:2]];
+	
+	integer i;
 	
 	initial
 	begin
-		PCreg<=32'h00003000;
+		for(i=0;i<MAXN;i=i+1)
+		begin
+			ins[i]=32'h0;
+		end
+		$readmemh("code.txt",ins,0,MAXN-1);
 	end
 
-	always @(posedge clk, posedge reset)
-	begin
-		if(reset)
-			PCreg<=32'h00003000;
-		else
-			if(EN)
-				PCreg<=NPC;
-	end
-	
 endmodule

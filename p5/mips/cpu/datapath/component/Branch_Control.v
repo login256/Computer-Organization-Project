@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    00:05:24 11/16/2018 
+// Create Date:    21:22:44 11/27/2018 
 // Design Name: 
-// Module Name:    PCreg 
+// Module Name:    Branch_Control 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,30 +18,15 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PCmem(
-	input clk,
-	input reset,
-	input EN,
-    input [31:0] NPC,
-    output [31:0] PC
+module Branch_Control(
+    input [31:0] RD1,
+    input [31:0] RD2,
+    input [4:0] rt,
+    input IsBr,
+    input [5:0] Opcode,
+    output Br
     );
 	
-	reg [31:0] PCreg;
-	
-	assign PC=PCreg;
-	
-	initial
-	begin
-		PCreg<=32'h00003000;
-	end
+	assign Br=IsBr&&~(&(RD1^RD2));
 
-	always @(posedge clk, posedge reset)
-	begin
-		if(reset)
-			PCreg<=32'h00003000;
-		else
-			if(EN)
-				PCreg<=NPC;
-	end
-	
 endmodule

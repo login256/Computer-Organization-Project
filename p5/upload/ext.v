@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    00:05:24 11/16/2018 
+// Create Date:    00:54:15 11/17/2018 
 // Design Name: 
-// Module Name:    PCreg 
+// Module Name:    ext 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,30 +18,15 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PCmem(
-	input clk,
-	input reset,
-	input EN,
-    input [31:0] NPC,
-    output [31:0] PC
+module ext(
+    input [15:0] Imm,
+    input [1:0] EXTCtrl,
+    output [31:0] Result
     );
 	
-	reg [31:0] PCreg;
-	
-	assign PC=PCreg;
-	
-	initial
-	begin
-		PCreg<=32'h00003000;
-	end
+	assign Result=	EXTCtrl==2'b00 ? {{16{1'b0}},Imm} :
+					EXTCtrl==2'b01 ? {{16{Imm[15:15]}},Imm} :
+					EXTCtrl==2'b10 ? {Imm,{16{1'b0}}} :
+					{{16{1'b1}},Imm};
 
-	always @(posedge clk, posedge reset)
-	begin
-		if(reset)
-			PCreg<=32'h00003000;
-		else
-			if(EN)
-				PCreg<=NPC;
-	end
-	
 endmodule
