@@ -53,7 +53,7 @@ module ATDecoder(
 			`functSUBU:
 				value<={rs,2'd1,rt,2'd1,rd,2'd2};
 			`functSLL:
-				value<={rs,2'd1,r0,2'd0,rd,2'd2};
+				value<={r0,2'd0,rt,2'd1,rd,2'd2};
 			`functJR:
 				value<={rs,2'd0,r0,2'd0,r0,2'd0};
 //			`functJALR:	
@@ -65,18 +65,18 @@ module ATDecoder(
 		
 		`opcodeORI:
 			value<={rs,2'd1,r0,2'd0,rt,2'd2};
+		`opcodeLUI:
+			value<={r0,2'd0,r0,2'd0,rt,2'd1};
 		`opcodeLW:
-			value<={rs,2'd1,r0,2'd0,rt,2'd1};
+			value<={rs,2'd1,r0,2'd0,rt,2'd3};
 		`opcodeSW:
 			value<={rs,2'd1,rt,2'd2,r0,2'd0};
 		`opcodeBEQ:
 			value<={rs,2'd0,rt,2'd0,r0,2'd0};
-		`opcodeLUI:
-			value<={r0,2'd0,r0,2'd0,rt,2'd1};
-		`opcodeJAL:
-			value<={r0,2'd0,r0,2'd0,ra,2'd1};
 		`opcodeJ:
 			value<={r0,2'd0,r0,2'd0,r0,2'd0};
+		`opcodeJAL:
+			value<={r0,2'd0,r0,2'd0,ra,2'd1};
 //		`opcodeLH:
 //		`opcodeLB:
 //		`opcodeLWL:

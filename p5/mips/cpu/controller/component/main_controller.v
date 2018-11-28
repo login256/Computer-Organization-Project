@@ -67,18 +67,18 @@ module main_controller(
 		
 		`opcodeORI:
 			controls<={13'b0_0_0_0_01_1_0_0_0_1_00,`aluOr,3'b0};
+		`opcodeLUI:
+			controls<={13'b0_0_0_0_01_1_1_0_0_1_10,8'b0,3'b0};
 		`opcodeLW:
 			controls<={13'b0_0_0_0_01_1_0_0_1_1_01,`aluAdd,`slword};
 		`opcodeSW:
 			controls<={13'b0_0_0_0_00_1_0_1_0_0_01,`aluAdd,`slword};
 		`opcodeBEQ:
 			controls<={13'b1_0_0_0_00_0_0_0_0_0_00,`aluEq,3'b0};
-		`opcodeLUI:
-			controls<={13'b0_0_0_0_01_1_1_0_0_1_10,8'b0,3'b0};
-		`opcodeJAL:
-			controls<={13'b0_1_1_1_10_0_1_0_0_1_00,8'b0,3'b0};
 		`opcodeJ:
 			controls<={13'b0_1_1_0_00_0_0_0_0_0_00,8'b0,3'b0};
+		`opcodeJAL:
+			controls<={13'b0_1_1_1_10_0_1_0_0_1_00,8'b0,3'b0};
 //		`opcodeLH:
 //			controls<={13'b0_0_0_01_1_1_0_01,`aluAdd,`slhalf};
 //		`opcodeLB:
