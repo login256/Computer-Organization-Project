@@ -47,37 +47,37 @@ module datamemory(
 			mem[i]<=32'h0;
 	end
 	
-	always @(posedge clk, posedge reset)
+	always @(posedge clk)
 	begin
 		if(reset)
 		begin
 			for(i=0;i<MAXN;i=i+1)
-				mem[i]<=32'h0;
+				mem[i]=32'h0;
 		end
 		else
 		begin
 			if(WE)
 			begin
 				if(by==0&&WLen==0)
-					mem[sa][7:0]<=WD[7:0];
+					mem[sa][7:0]=WD[7:0];
 				else if(by==0&&WLen==1)
-					mem[sa][15:0]<=WD[15:0];
+					mem[sa][15:0]=WD[15:0];
 				else if(by==0&&WLen==2)
-					mem[sa][23:0]<=WD[23:0];
+					mem[sa][23:0]=WD[23:0];
 				else if(by==0&&WLen==3)
-					mem[sa][31:0]<=WD[31:0];
+					mem[sa][31:0]=WD[31:0];
 				else if(by==1&&WLen==0)
-					mem[sa][15:8]<=WD[15:8];
+					mem[sa][15:8]=WD[15:8];
 				else if(by==1&&WLen==1)
-					mem[sa][23:8]<=WD[23:8];
+					mem[sa][23:8]=WD[23:8];
 				else if(by==1&&WLen==2)
-					mem[sa][31:8]<=WD[31:8];
+					mem[sa][31:8]=WD[31:8];
 				else if(by==2&&WLen==0)
-					mem[sa][23:16]<=WD[23:16];
+					mem[sa][23:16]=WD[23:16];
 				else if(by==2&&WLen==1)
-					mem[sa][31:16]<=WD[31:16];
+					mem[sa][31:16]=WD[31:16];
 				else if(by==3&&WLen==0)
-					mem[sa][31:24]<=WD[31:24];
+					mem[sa][31:24]=WD[31:24];
 				else
 					$display("????");
 				$display("%d@%h: *%h <= %h", $time, PC, A, mem[sa]);

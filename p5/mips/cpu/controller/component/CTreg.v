@@ -39,7 +39,7 @@ module CTreg(
     output reg [1:0] MWTnew
     );
 	
-	always@(posedge clk, posedge reset)
+	always@(posedge clk)
 	begin
 		if(reset)
 		begin

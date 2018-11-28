@@ -64,6 +64,7 @@ module datapath(
 	wire [31:0] FD_InstrOut;
 	wire [31:0] D_RD1;
 	wire D_IsBr=IsBr, D_Jump=Jump, D_JType=JType;
+	wire D_Br;
 	
 	//for last level
 	wire [31:0] MW_ResultOut;

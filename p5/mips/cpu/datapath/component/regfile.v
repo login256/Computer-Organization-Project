@@ -45,7 +45,7 @@ module regfile(
 		end
 	end
 	
-	always @(posedge clk, posedge reset)
+	always @(posedge clk)
 	begin
 		if(reset)
 		begin
@@ -60,7 +60,9 @@ module regfile(
 			begin
 				$display("%d@%h: $%d <= %h", $time, TPC, A3, WD);
 				if(A3!=0)
+				begin
 					rf[A3]<=WD;
+				end
 			end
 		end
 	end

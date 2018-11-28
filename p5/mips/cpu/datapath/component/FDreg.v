@@ -36,7 +36,7 @@ module FDreg(
 	assign PCAdd8Out=PCAdd8;
 	assign curPCOut=curPC;
 	
-	always @ (posedge clk, posedge reset)
+	always @ (posedge clk)
 	begin
 		if(reset)
 		begin

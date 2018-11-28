@@ -78,9 +78,9 @@ module DEreg(
 	reg [31:0] PC=0;
 	assign PCOut=PC;
 	
-	always @(posedge clk, posedge reset)
+	always @(posedge clk)
 	begin
-		if(reset||clr)
+		if(reset|clr)
 		begin
 			RD1<=0;
 			RD2<=0;

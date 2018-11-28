@@ -27,6 +27,6 @@ module Branch_Control(
     output Br
     );
 	
-	assign Br=IsBr&&~(&(RD1^RD2));
+	assign Br=IsBr&~(|(RD1^RD2));
 
 endmodule

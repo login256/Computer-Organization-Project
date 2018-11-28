@@ -35,7 +35,7 @@ module PCmem(
 		PCreg<=32'h00003000;
 	end
 
-	always @(posedge clk, posedge reset)
+	always @(posedge clk)
 	begin
 		if(reset)
 			PCreg<=32'h00003000;

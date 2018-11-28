@@ -47,7 +47,7 @@ module MWreg(
 	reg [31:0] PC=0;
 	assign PCOut=PC;
 	
-	always @(posedge clk, posedge reset)
+	always @(posedge clk)
 	begin
 		if(reset)
 		begin
