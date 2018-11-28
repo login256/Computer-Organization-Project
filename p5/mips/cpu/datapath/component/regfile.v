@@ -58,9 +58,9 @@ module regfile(
 		begin
 			if(WE)
 			begin
-				$display("%d@%h: $%d <= %h", $time, TPC, A3, WD);
 				if(A3!=0)
 				begin
+					$display("%d@%h: $%d <= %h", $time, TPC, A3, WD);
 					rf[A3]<=WD;
 				end
 			end
