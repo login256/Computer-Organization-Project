@@ -40,12 +40,12 @@ module mips_tb;
 		reset = 1;
 
 		// Wait 100 ns for global reset to finish
-		#100;
+		#1;
         reset<=0;
 		// Add stimulus here
 	end
       
-	always #1 clk=~clk; 
+	always #0.5 clk=~clk; 
 	 
 endmodule
 

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-28T02:29:22</DateModified>
-  <ModuleName>Branch_Control</ModuleName>
+  <DateModified>2018-11-29T00:04:19</DateModified>
+  <ModuleName>cpu</ModuleName>
   <SummaryTimeStamp>2018-11-26T21:03:05</SummaryTimeStamp>
   <SavedFilePath>C:/Users/lyt/Documents/project/co/p5/mips/iseconfig/cpu.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/lyt/Documents/project/co/p5/mips\</ImplementationReportsDirectory>

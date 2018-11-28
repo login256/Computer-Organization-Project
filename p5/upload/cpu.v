@@ -55,6 +55,8 @@ module cpu(
 	wire [1:0] M2FWSel;
 	wire stall;
 	
+	wire DE_RegWE,EM_RegWE,MW_RegWE;
+	
 	datapath DP (
 		.clk(clk), 
 		.reset(reset), 
@@ -73,6 +75,11 @@ module cpu(
 		.EXTCtrl(EXTCtrl), 
 		.ALUCtrl(ALUCtrl), 
 		.SLCtrl(SLCtrl), 
+		//WE
+		.DE_RegWE(DE_RegWE),
+		.EM_RegWE(EM_RegWE),
+		.MW_RegWE(MW_RegWE),
+		//FWSTCT
 		.D1FWSel(D1FWSel), 
 		.D2FWSel(D2FWSel), 
 		.E1FWSel(E1FWSel), 
@@ -110,6 +117,9 @@ module cpu(
 		.EXTCtrl(EXTCtrl), 
 		.ALUCtrl(ALUCtrl), 
 		.SLCtrl(SLCtrl), 
+		.DERegWE(DE_RegWE),
+		.EMRegWE(EM_RegWE),
+		.MWRegWE(MW_RegWE),
 		.D1FWSel(D1FWSel), 
 		.D2FWSel(D2FWSel), 
 		.E1FWSel(E1FWSel), 
