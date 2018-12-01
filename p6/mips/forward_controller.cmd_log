@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p5/mips/forward_controller.tfi -lib work C:/Users/lyt/Documents/project/co/p5/mips/cpu/controller/component//forward_controller.v -module forward_controller -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

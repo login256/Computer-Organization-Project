@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p5/mips/CTreg.tfi -lib work C:/Users/lyt/Documents/project/co/p5/mips/cpu/controller/component//CTreg.v -module CTreg -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

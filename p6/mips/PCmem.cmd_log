@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p5/mips/PCmem.tfi -lib work C:/Users/lyt/Documents/project/co/p5/mips/cpu/datapath/component//PCreg.v -module PCmem -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

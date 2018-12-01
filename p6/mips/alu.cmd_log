@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p5/mips/alu.tfi -lib work C:/Users/lyt/Documents/project/co/p5/mips/cpu/datapath/component//alu.v -module alu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
