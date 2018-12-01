@@ -271,7 +271,7 @@ module datapath(
 	//MDU
 	
 	wire [31:0] E_MDUlo, E_MDUhi;
-	wire MDU_Busy;
+	wire E_MDUBusy;
 	
 	multi_divi_unit MDU (
     .clk(clk), 

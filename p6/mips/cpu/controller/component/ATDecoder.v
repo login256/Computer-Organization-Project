@@ -47,7 +47,7 @@ module ATDecoder(
 	begin
 		case(Opcode)
 		
-		`opcodeR:	//R instr
+		`opcodeSPECIAL:	//R instr
 		begin	
 			case(Funct)
 			

@@ -47,7 +47,7 @@ module main_controller(
 	begin
 		case(Opcode)
 		
-		`opcodeR:	//R instr
+		`opcodeSPECIAL:	//R instr
 		begin	
 			case(Funct)
 			

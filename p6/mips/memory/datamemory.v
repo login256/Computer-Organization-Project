@@ -80,7 +80,7 @@ module datamemory(
 					mem[sa][31:24]=WD[31:24];
 				else
 					$display("????");
-				$display("%d@%h: *%h <= %h", $time, PC, A, mem[sa]);
+				$display("%d@%h: *%h <= %h", $time, PC, {A[31:2],2'b00}, mem[sa]);
 //				$display("@%h: *%h <= %h", PC, A, mem[sa]);
 			end
 		end

@@ -2,34 +2,91 @@
 //Instr define
 
 //opcode:
-`define opcodeR 6'b000000
-`define opcodeORI 6'b001101
-`define opcodeLW 6'b100011
-`define opcodeSW 6'b101011
-`define opcodeBEQ 6'b000100
-`define opcodeLUI 6'b001111
-`define opcodeJAL 6'b000011
-`define opcodeJ 6'b000010
-`define opcodeSH 6'b101001
-`define opcodeSB 6'b101000
-`define opcodeSWL 6'b101010
-`define opcodeSWR 6'b101110
-`define opcodeLH 6'b100001
-`define opcodeLB 6'b100000
-`define opcodeLWL 6'b100010
-`define opcodeLWR 6'b100110
-`define opcodeLHU 6'b100101
-`define opcodeLBU 6'b100100
+`define opcodeSPECIAL 6'b000000
+`define opcodeREGIMM 6'b000001
+
+`define opcodeADDI	6'b001000
+`define opcodeADDIU	6'b001001
+`define opcodeSLTI	6'b001010
+`define opcodeSLTIU	6'b001011
+`define opcodeANDI	6'b001100
+`define opcodeORI	6'b001101
+`define opcodeXORI	6'b001110
+
+`define opcodeLUI	6'b001111
+
+`define opcodeLB	6'b100000
+`define opcodeLH	6'b100001
+`define opcodeLWL	6'b100010
+`define opcodeLW	6'b100011
+`define opcodeLBU	6'b100100
+`define opcodeLHU	6'b100101
+`define opcodeLWR	6'b100110
+
+`define opcodeSB	6'b101000
+`define opcodeSH	6'b101001
+`define opcodeSWL	6'b101010
+`define opcodeSW	6'b101011
+`define opcodeSWR	6'b101110
+
+`define opcodeBEQ	6'b000100
+`define opcodeBNE	6'b000101
+
+`define opcodeBLEZ	6'b000110
+`define opcodeBGTZ	6'b000111
+
+`define opcodeJ		6'b000010
+
+`define opcodeJAL	6'b000011
+
 
 //funct:
-`define functADDU 6'b100001
-`define functSUBU 6'b100011
-`define functSLL 6'b000000
-`define functMULT 6'b011000
-`define functMFLO 6'b010010
-`define functMFHI 6'b010001
-`define functJR 6'b001000
-`define functJALR 6'b001001
+`define functADD	6'b100000
+`define functADDU	6'b100001
+`define functSUB	6'b100010
+`define functSUBU	6'b100011
+`define functADD	6'b100100
+`define functOR		6'b100101
+`define functXOR	6'b100110
+`define functNOR	6'b100111
+
+`define functSLLV	6'b000100
+`define functSRLV	6'b000110
+`define functSRAV	6'b000111
+
+`define functSLT	6'b101010
+`define functSLTU	6'b101011
+
+`define functSLL	6'b000000
+`define functSRL	6'b000010
+`define functSRA	6'b000011
+
+`define functMULT	6'b011000
+`define functMULTU	6'b011001
+`define functDIV	6'b011010
+`define functDIVU	6'b011011
+
+`define functMFHI	6'b010000
+`define functMFLO	6'b010010
+
+`define functMTHI	6'b010001
+`define functMTLO	6'b010011
+
+`define functJR		6'b001000
+
+`define functJALR	6'b001001
+
+
+//rt
+`define rtBLTZ	5'b00000
+`define rtBGEZ	5'b00001
+
+//EXT define
+`define extUnsigned	2'b00
+`define extSigned	2'b01
+`define extLui		2'b10
+`define ext1		2'b11
+
 
 //AluCtrl define
 `define aluWidth	8
@@ -47,6 +104,9 @@
 `define aluLe	`aluWidth'b00001011
 `define aluGt	`aluWidth'b00001100
 `define aluGe	`aluWidth'b00001101
+`define aluSllv	`aluWidth'b00001110
+`define aluSrlv	`aluWidth'b00001111
+`define aluSrav	`aluWidth'b00010000
 
 //Save/LoadCtrl define
 `define slword	3'b000

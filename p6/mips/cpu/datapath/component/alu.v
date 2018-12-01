@@ -37,13 +37,16 @@ module alu(
 						ALUCtrl==`aluXor ? SrcA^SrcB :
 						ALUCtrl==`aluNor ? ~(SrcA|SrcB) :
 						ALUCtrl==`aluSll ? $unsigned(SrcB<<Shamt) :
-						ALUCtrl==`aluSrl ? $unsigned(SrcB>>Shamt) :
+						ALUCtrl==`aluSrl ? $unsigned($unsigned(SrcB)>>Shamt) :
 						ALUCtrl==`aluSra ? $signed($signed(SrcB)>>>Shamt) :
 						ALUCtrl==`aluEq  ? SrcA==SrcB :
 						ALUCtrl==`aluLt  ? SrcA<SrcB :
 						ALUCtrl==`aluLe  ? SrcA<=SrcB :
 						ALUCtrl==`aluGt  ? SrcA>SrcB :
 						ALUCtrl==`aluGe  ? SrcA>=SrcB :
+						ALUCtrl==`aluSllv  ? SrcB<<SrcA :
+						ALUCtrl==`aluSrlv  ? $unsigned($unsigned(SrcB)>>SrcA) : :
+						ALUCtrl==`aluSrav  ? $signed($signed(SrcB)>>>SrcA) :
 						0;
 	
 endmodule
