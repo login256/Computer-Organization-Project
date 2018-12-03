@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-27T20:48:39</DateModified>
-  <ModuleName>datapath</ModuleName>
+  <DateModified>2018-12-03T14:55:48</DateModified>
+  <ModuleName>controller</ModuleName>
   <SummaryTimeStamp>2018-11-27T17:38:14</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/lyt/Documents/project/co/p5/mips/iseconfig/controller.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/lyt/Documents/project/co/p5/mips\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/lyt/Documents/project/co/p6/mips/iseconfig/controller.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/lyt/Documents/project/co/p6/mips\</ImplementationReportsDirectory>
   <DateInitialized>2018-11-27T20:48:39</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

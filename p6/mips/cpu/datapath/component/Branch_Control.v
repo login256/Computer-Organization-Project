@@ -1,3 +1,4 @@
+`include"..\..\define.v"
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -27,6 +28,23 @@ module Branch_Control(
     output Br
     );
 	
-	assign Br=IsBr&~(|(RD1^RD2));
+	wire Cmp=	Opcode==`opcodeBEQ ? ~(|(RD1^RD2)) :
+				Opcode==`opcodeBNE ? (|(RD1^RD2)) :
+				Opcode==`opcodeBLEZ ? ((~(|(RD1))) | (RD1[31])) :
+				Opcode==`opcodeREGIMM && rt==`rtBLTZ ? (RD1[31]) :
+				Opcode==`opcodeBGTZ ? (~RD1[31]) :
+				Opcode==`opcodeREGIMM && rt==`rtBGEZ ?  ((~(|(RD1))) | (~RD1[31])):
+				0;
 
+	assign Br= IsBr&Cmp;
+
+	/*
+	assign Br=	Opcode==`opcodeBEQ ? IsBr&~(|(RD1^RD2)) :
+				Opcode==`opcodeBNE ? IsBr&(|(RD1^RD2)) :
+				Opcode==`opcodeBLEZ ? IsBr&((~(|(RD1))) | (RD1[31])) :
+				Opcode==`opcodeREGIMM && rt==`rtBLTZ ? IsBr&(RD1[31]) :
+				Opcode==`opcodeBGTZ ? IsBr&(~RD1[31]) :
+				Opcode==`opcodeREGIMM && rt==`rtBGEZ ?  IsBr&((~(|(RD1))) | (~RD1[31])):
+				0;
+	*/
 endmodule

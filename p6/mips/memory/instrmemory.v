@@ -23,12 +23,14 @@ module instrmemory(
     output [31:0] Instr
     );
 	
-	parameter adrbits=10;
+	parameter adrbits=12;
 	parameter MAXN=(1<<adrbits);
 	
 	reg [31:0] ins[MAXN-1:0];
 	
-	assign Instr=ins[PC[2+adrbits-1:2]];
+	wire [31:0] adr=(PC-32'h00003000);
+	
+	assign Instr=ins[adr[2+adrbits-1:2]];
 	
 	integer i;
 	

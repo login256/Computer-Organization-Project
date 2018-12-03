@@ -40,13 +40,17 @@ module alu(
 						ALUCtrl==`aluSrl ? $unsigned($unsigned(SrcB)>>Shamt) :
 						ALUCtrl==`aluSra ? $signed($signed(SrcB)>>>Shamt) :
 						ALUCtrl==`aluEq  ? SrcA==SrcB :
-						ALUCtrl==`aluLt  ? SrcA<SrcB :
-						ALUCtrl==`aluLe  ? SrcA<=SrcB :
-						ALUCtrl==`aluGt  ? SrcA>SrcB :
-						ALUCtrl==`aluGe  ? SrcA>=SrcB :
-						ALUCtrl==`aluSllv  ? SrcB<<SrcA :
-						ALUCtrl==`aluSrlv  ? $unsigned($unsigned(SrcB)>>SrcA) : :
-						ALUCtrl==`aluSrav  ? $signed($signed(SrcB)>>>SrcA) :
+						ALUCtrl==`aluLt  ? $signed($signed(SrcA)<$signed(SrcB)) :
+						ALUCtrl==`aluLe  ? $signed($signed(SrcA)<=$signed(SrcB)) :
+						ALUCtrl==`aluGt  ? $signed($signed(SrcA)>$signed(SrcB)) :
+						ALUCtrl==`aluGe  ? $signed($signed(SrcA)>=$signed(SrcB)) :
+						ALUCtrl==`aluLtu  ? $unsigned($unsigned(SrcA)<$unsigned(SrcB)) :
+						ALUCtrl==`aluLeu  ? $unsigned($unsigned(SrcA)<=$unsigned(SrcB)) :
+						ALUCtrl==`aluGtu  ? $unsigned($unsigned(SrcA)>$unsigned(SrcB)) :
+						ALUCtrl==`aluGeu  ? $unsigned($unsigned(SrcA)>=$unsigned(SrcB)) :
+						ALUCtrl==`aluSllv  ? SrcB<<SrcA[4:0] :
+						ALUCtrl==`aluSrlv  ? $unsigned($unsigned(SrcB)>>SrcA[4:0]) :
+						ALUCtrl==`aluSrav  ? $signed($signed(SrcB)>>>SrcA[4:0]) :
 						0;
 	
 endmodule
