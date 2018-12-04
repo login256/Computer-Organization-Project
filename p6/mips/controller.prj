@@ -1,6 +1,0 @@
-verilog work "cpu/controller/component/stall_controller.v"
-verilog work "cpu/controller/component/main_controller.v"
-verilog work "cpu/controller/component/forward_controller.v"
-verilog work "cpu/controller/component/CTreg.v"
-verilog work "cpu/controller/component/ATDecoder.v"
-verilog work "cpu/controller/controller.v"
