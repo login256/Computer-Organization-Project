@@ -26,7 +26,7 @@ module mips(
 	wire [31:0] DMAdr, DMcurPC;
 	wire [31:0] DMDataW, DMDataR;
 	wire DMcurWE;
-	wire [1:0] DMWLen;
+	wire [3:0] DMByteEN;
 	
 	wire [31:0] PC_Fetch, Fetch_Instr;
 	
@@ -36,7 +36,7 @@ module mips(
 		.DMDataR(DMDataR), 
 		.DMAdr(DMAdr), 
 		.DMcurWE(DMcurWE), 
-		.DMWLen(DMWLen), 
+		.DMByteEN(DMByteEN), 
 		.DMDataW(DMDataW), 
 		.DMcurPC(DMcurPC), 
 		.PC_Fetch(PC_Fetch), 
@@ -50,7 +50,7 @@ module mips(
 		.reset(reset),
 		.A(DMAdr),
 		.WD(DMDataW),
-		.WLen(DMWLen),
+		.ByteEN(DMByteEN),
 		.RD(DMDataR),
 		.WE(DMcurWE),
 		.PC(DMcurPC)

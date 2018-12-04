@@ -24,7 +24,7 @@ module datamemory(
     input [31:0] A,
     input [31:0] WD,
     input WE,
-	input [1:0] WLen,
+	input [3:0] ByteEN,
     output [31:0] RD,
 	input [31:0] PC
     );
@@ -58,6 +58,7 @@ module datamemory(
 		begin
 			if(WE)
 			begin
+			/*
 				if(by==0&&WLen==0)
 					mem[sa][7:0]=WD[7:0];
 				else if(by==0&&WLen==1)
@@ -80,8 +81,17 @@ module datamemory(
 					mem[sa][31:24]=WD[31:24];
 				else
 					$display("????");
-				$display("%d@%h: *%h <= %h", $time, PC, {A[31:2],2'b00}, mem[sa]);
-//				$display("@%h: *%h <= %h", PC, A, mem[sa]);
+			*/
+				if(ByteEN[0])
+					mem[sa][7:0]=WD[7:0];
+				if(ByteEN[1])
+					mem[sa][15:8]=WD[15:8];
+				if(ByteEN[2])
+					mem[sa][23:16]=WD[23:16];
+				if(ByteEN[3])
+					mem[sa][31:24]=WD[31:24];
+				$display("%d@%h: *%h <= %h", $time, PC, {sa,2'b00}, mem[sa]);
+//				$display("@%h: *%h <= %h", PC, {sa,2'b00}, mem[sa]);
 			end
 		end
 	end

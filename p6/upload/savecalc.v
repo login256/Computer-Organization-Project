@@ -25,7 +25,7 @@ module savecalc(
     input [2:0] SLCtrl,
     output [31:0] Dout,
 	output [31:0] Adrout,
-	output [1:0] WLen
+	output [3:0] ByteEN
     );
 	
 	wire [1:0] bytesel=Adrin[1:0];
@@ -37,19 +37,27 @@ module savecalc(
 					SLCtrl==`slwordright ? Din<<({bytesel,3'b0}) :
 					0;
 					
-	assign WLen= 	SLCtrl==`slword ? 2'b11 :
-					SLCtrl==`slhalf ? 2'b01 :
-					SLCtrl==`slbyte ? 2'b00 :
+	assign ByteEN= 	SLCtrl==`slword ? 4'b1111 :
+					SLCtrl==`slhalf ? (4'b0011 << {bytesel[1],1'b0}) :
+					SLCtrl==`slbyte ? (4'b0001 << bytesel) :
+					SLCtrl==`slwordleft ? (4'b1111 >> (~bytesel)) :
+					SLCtrl==`slwordright ? (4'b1111 << (bytesel)) :
+					4'b0;
+					
+					/*
 					SLCtrl==`slwordleft ? bytesel :
 					SLCtrl==`slwordright ? ~bytesel :
-					2'b0;
-					
+					*/
+	assign Adrout= Adrin;
+	
+	/*
 	assign Adrout=	SLCtrl==`slword ? Adrin :
 					SLCtrl==`slhalf ? Adrin :
 					SLCtrl==`slbyte ? Adrin :
 					SLCtrl==`slwordleft ? {Adrin[31:2],2'b00} :
 					SLCtrl==`slwordright ? Adrin :
 					Adrin;
+	*/
 	
 	/*
 	reg [31:0] Dtemp;

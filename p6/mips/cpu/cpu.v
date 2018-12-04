@@ -25,7 +25,7 @@ module cpu(
 	input [31:0] DMDataR,
 	output [31:0] DMAdr,
 	output DMcurWE,
-	output [1:0] DMWLen,
+	output [3:0] DMByteEN,
 	output [31:0] DMDataW,
 	output [31:0] DMcurPC,
 	//IM
@@ -100,7 +100,7 @@ module cpu(
 		.DMDataR(DMDataR), 
 		.DMAdr(DMAdr), 
 		.DMcurWE(DMcurWE), 
-		.DMWLen(DMWLen), 
+		.DMByteEN(DMByteEN), 
 		.DMDataW(DMDataW), 
 		.DMcurPC(DMcurPC), 
 		//IM

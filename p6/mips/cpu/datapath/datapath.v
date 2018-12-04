@@ -59,7 +59,7 @@ module datapath(
 	input [31:0] DMDataR,
 	output [31:0] DMAdr,
 	output DMcurWE,
-	output [1:0] DMWLen,
+	output [3:0] DMByteEN,
 	output [31:0] DMDataW,
 	output [31:0] DMcurPC,
 	//IM
@@ -335,7 +335,7 @@ module datapath(
 	//SC
 	
 	wire [31:0] M_SCDout, M_SCAdrout;
-	wire [1:0] M_SCWLen;
+	wire [3:0] M_SCByteEN;
 	
 	savecalc SC (
     .Din(M_RD2), 
@@ -343,12 +343,12 @@ module datapath(
     .SLCtrl(EM_SLCtrlOut), 
     .Dout(M_SCDout),
 	.Adrout(M_SCAdrout),
-    .WLen(M_SCWLen)
+    .ByteEN(M_SCByteEN)
     );
 	
 	assign DMAdr=M_SCAdrout;
 	assign DMDataW=M_SCDout;
-	assign DMWLen=M_SCWLen;
+	assign DMByteEN=M_SCByteEN;
 	assign DMcurWE=EM_DMWEOut;
 	assign DMcurPC=EM_PCOut;
 	
