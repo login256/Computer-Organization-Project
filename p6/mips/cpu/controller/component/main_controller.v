@@ -104,9 +104,9 @@ module main_controller(
 				controls<={13'b0_0_0_0_00_0_00_1_0_0_0};
 			
 			`functMFHI:
-				controls<={13'b0_0_0_0_10_0_11_0_0_0_1};
+				controls<={13'b0_0_0_0_00_0_11_0_0_0_1};
 			`functMFLO:
-				controls<={13'b0_0_0_0_10_0_10_0_0_0_1};
+				controls<={13'b0_0_0_0_00_0_10_0_0_0_1};
 				
 			`functMTHI:
 				controls<={13'b0_0_0_0_00_0_00_1_0_0_0};
@@ -343,9 +343,9 @@ module main_controller(
 				MDUCT<=`mduDivu;
 				
 			`functMTHI:
-				MDUCT<=`mduMtlo;
-			`functMTLO:
 				MDUCT<=`mduMthi;
+			`functMTLO:
+				MDUCT<=`mduMtlo;
 
 			default:
 				MDUCT<=3'b0;

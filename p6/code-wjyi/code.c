@@ -13,7 +13,7 @@ int main(){
 	char s_l_w[2][10]={"sw","lw"};
 	char s_l_h[3][10]={"lh","lhu","sh"};
 	char s_l_b[3][10]={"lb","lbu","sb"};
-	char mu_di[6][10]={"mult","multu","madd","maddu"};
+	char mu_di[6][10]={"mult","multu","div","divu"};
 	char mft[4][10]={"mflo","mfhi","mtlo","mthi"};
 	int i,j,select, t;
 	FILE* fp;

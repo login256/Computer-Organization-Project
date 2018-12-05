@@ -35,7 +35,7 @@ module multi_divi_unit(
 	reg [3:0] counter=0;
 	
 	assign Busy=~(counter==0);
-	assign WillBusy=(counter>1)||(Start&&(MDUCtrl==`mduMtlo||MDUCtrl==`mduMthi));
+	assign WillBusy=(counter>1)||(Start&&(MDUCtrl!=`mduMtlo&&MDUCtrl!=`mduMthi));
 	
 	reg [31:0] SrcA_reg=0, SrcB_reg=0;
 	reg [2:0] MDUCtrl_reg=0;
@@ -78,7 +78,7 @@ module multi_divi_unit(
 					lo_reg<=SrcA;
 					counter<=0;
 				end
-				`mduMtlo:
+				`mduMthi:
 				begin
 					hi_reg<=SrcA;
 					counter<=0;

@@ -94,9 +94,9 @@ module ATDecoder(
 				value<={rs,2'd1,rt,2'd1,r0,2'd0};
 			
 			`functMFHI:
-				value<={r0,2'd0,r0,2'd0,rs,2'd2};
+				value<={r0,2'd0,r0,2'd0,rd,2'd2};
 			`functMFLO:
-				value<={r0,2'd0,r0,2'd0,rs,2'd2};
+				value<={r0,2'd0,r0,2'd0,rd,2'd2};
 				
 			`functMTHI:
 				value<={rs,2'd1,r0,2'd0,r0,2'd0};
