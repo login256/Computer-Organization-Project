@@ -28,12 +28,14 @@ module multi_divi_unit(
 	input [2:0] MDUCtrl,
     output [31:0] lo,
     output [31:0] hi,
-    output Busy
+    output Busy,
+	output WillBusy
     );
 	
 	reg [3:0] counter=0;
 	
 	assign Busy=~(counter==0);
+	assign WillBusy=(counter>1)||(Start&&(MDUCtrl==`mduMtlo||MDUCtrl==`mduMthi));
 	
 	reg [31:0] SrcA_reg=0, SrcB_reg=0;
 	reg [2:0] MDUCtrl_reg=0;

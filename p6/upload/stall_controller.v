@@ -51,6 +51,6 @@ module stall_controller(
 					IDA2==MWA3&&MWRegWE ? MWTnew :
 					2'd0;
 					
-	assign stall=	(IDA1!=0&&A1Tnew>Tuse1)||(IDA2!=0&&A2Tnew>Tuse2) || ((MDUBusy||DE_MDUEN)&&MDUreq);
+	assign stall=	(IDA1!=0&&A1Tnew>Tuse1)||(IDA2!=0&&A2Tnew>Tuse2) || (MDUBusy&&MDUreq);
 	
 endmodule

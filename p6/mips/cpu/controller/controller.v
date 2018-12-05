@@ -121,7 +121,8 @@ module controller(
 //		.MWA1(CTRMWA1), 
 //		.MWA2(CTRMWA2), 
 		.MWA3(CTRMWA3), 
-		.MWTnew(CTRMWTnew)
+		.MWTnew(CTRMWTnew),
+		.stall(stall)
     );
 	
 //	wire [1:0] FWCTD1FWSel,FWCTD2FWSel,FWCTE1FWSel,FWCTE2FWSel,FWCTM1FWSel,FWCTM2FWSel;

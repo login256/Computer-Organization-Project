@@ -36,7 +36,8 @@ module CTreg(
 //	output reg [4:0] MWA1,
 //	output reg [4:0] MWA2,
     output reg [4:0] MWA3,
-    output reg [1:0] MWTnew
+    output reg [1:0] MWTnew,
+	input stall
     );
 	
 	always@(posedge clk)
@@ -58,10 +59,20 @@ module CTreg(
 		end
 		else
 		begin
-			DEA1<=A1;
-			DEA2<=A2;
-			DEA3<=A3;
-			DETnew<=Tnew==0?2'd0:Tnew-2'd1;
+			if(stall)
+			begin
+				DEA1<=0;
+				DEA2<=0;
+				DEA3<=0;
+				DETnew<=0;
+			end
+			else
+			begin
+				DEA1<=A1;
+				DEA2<=A2;
+				DEA3<=A3;
+				DETnew<=Tnew==0?2'd0:Tnew-2'd1;
+			end
 			EMA1<=DEA1;
 			EMA2<=DEA2;
 			EMA3<=DEA3;

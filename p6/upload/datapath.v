@@ -272,7 +272,7 @@ module datapath(
 	//MDU
 	
 	wire [31:0] E_MDUlo, E_MDUhi;
-	wire E_MDUBusy;
+	wire E_MDUBusy,E_MDUWillBusy;
 	
 	multi_divi_unit MDU (
     .clk(clk), 
@@ -283,10 +283,11 @@ module datapath(
     .MDUCtrl(DE_MDUCtrlOut), 
     .lo(E_MDUlo), 
     .hi(E_MDUhi), 
-    .Busy(E_MDUBusy)
+    .Busy(E_MDUBusy),
+	.WillBusy(E_MDUWillBusy)
     );
 	
-	assign MDUBusy=E_MDUBusy;
+	assign MDUBusy=E_MDUWillBusy;
 	
 	wire [31:0] E_Result;
 	mux4#32 FC_mux_E_Result(E_ALUResult,DE_ImmOut,E_MDUlo,E_MDUhi,DE_EResultSelOut,E_Result);
