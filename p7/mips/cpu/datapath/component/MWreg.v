@@ -21,6 +21,7 @@
 module MWreg(
 	input clk,
 	input reset,
+	input ExcClr,
 	//Data	
 	input [31:0] ResultIn,
 	input [31:0] RD2In,
@@ -64,6 +65,17 @@ module MWreg(
 	always @(posedge clk)
 	begin
 		if(reset)
+		begin
+			Result<=0;
+			RD2<=0;
+			A3<=0;
+			DMDataR<=0;
+			DataWBSel<=0;
+			RegWE<=0;
+			SLCtrl<=0;
+			PC<=0;
+		end
+		else if(ExcClr)
 		begin
 			Result<=0;
 			RD2<=0;

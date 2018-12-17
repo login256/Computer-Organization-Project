@@ -32,6 +32,7 @@ module ATDecoder(
 	
 	wire [5:0] Opcode=Instr[31:26];
 	wire [5:0] Funct=Instr[5:0];
+	wire [5:0] Rs=Instr[25:21];
 	wire [5:0] Rt=Instr[20:16];
 	wire [4:0] rs=Instr[25:21];
 	wire [4:0] rt=Instr[20:16];
@@ -177,6 +178,27 @@ module ATDecoder(
 			
 		`opcodeJAL:
 			value<={r0,2'd0,r0,2'd0,ra,2'd1};
+			
+		`opcodeCOP0:
+		begin
+			case(Rs)
+			`rsMF:
+				value<={r0,2'd0,r0,2'd0,rt,2'd3};
+			`rsMT:
+				value<={r0,2'd0,rt,2'd2,r0,2'd0};
+			5'b10000:
+			begin
+				case(Funct)
+					`functERET:
+						value<={r0,2'd0,r0,2'd0,r0,2'd0};
+				default:
+					value<=21'd0;
+				endcase
+			end
+			default:
+				value<=21'd0;
+			endcase
+		end
 		default:
 			value<=21'd0;
 		endcase

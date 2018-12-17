@@ -27,7 +27,8 @@ module nextPC(
     input Jump,
     input JType,
     output [31:0] NPC,
-    output [31:0] PCAdd8
+    output [31:0] PCAdd8,
+	output IsBD
     );
 	
 	wire [31:0] PCAdd4;
@@ -40,5 +41,6 @@ module nextPC(
 	assign BrPC=curPC+({{14{BrImm[15]}},BrImm,2'b00});
 	assign JPC= JType ? {PCAdd4[31:28],JImm,2'b00} : JRImm ;
 	assign NPC= Jump ? JPC : (Br ? BrPC : PCAdd4);
-
+	assign IsBD=Br|Jump;
+	
 endmodule

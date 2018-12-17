@@ -22,6 +22,7 @@
 module main_controller(
     input [5:0] Opcode,
     input [5:0] Funct,
+	input [4:0] Rs,
 	input [4:0] Rt,
 	output IsBr,
 	output Jump,
@@ -186,7 +187,30 @@ module main_controller(
 			controls<={13'b0_1_1_0_00_0_00_0_0_0_0};
 		`opcodeJAL:
 			controls<={13'b0_1_1_1_11_0_01_0_0_0_1};
-
+		
+		`opcodeCOP0:
+		begin
+			case(Rs)
+			`rsMF:
+				controls<={13'b0_0_0_0_01_0_00_0_0_0_1};
+			`rsMT:
+				controls<={13'b0_0_0_0_00_0_00_0_0_0_0};
+			
+			5'b10000:
+			begin
+				case(Funct)
+				`functERET:
+					controls<={13'b0_0_0_0_00_0_00_0_0_0_0};
+				default:
+					controls<=13'b0;
+				endcase
+			end
+			
+			default:
+				controls<=13'b0;
+			endcase
+		end
+		
 //		`opcodeLWL:
 //		`opcodeLWR:
 //		`opcodeSWL:
@@ -467,6 +491,22 @@ endmodule
 
 		`opcodeJ:
 		`opcodeJAL:
+		
+		`opcodeCOP0:
+		begin
+			case(Rs)
+			`rsMF:
+			`rsMT:
+			5'b10000:
+			begin
+				case(Funct)
+				`functERET:
+				default:
+				endcase
+			end
+			default:
+			endcase
+		end
 		default:
 		endcase
 */

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    00:05:24 11/16/2018 
+// Create Date:    16:27:47 12/13/2018 
 // Design Name: 
-// Module Name:    PCreg 
+// Module Name:    IMManager 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,34 +18,18 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PCmem(
-	input clk,
-	input reset,
-	input EN,
-    input [31:0] NPC,
-    output [31:0] PC
-    );
+module IMManager(
+	input [31:0] PCIn,
+	output [31:0] PCFetch,
+	input [31:0] Instr_Fetch,
+	output [31:0] Instr,
+	output ExcADEL
+	);
 	
-	reg [31:0] PCreg;
+	assign ExcADEL=~(PCIn>=32'h00003000 && PCIn<=32'h00004fff && PCIn[1:0]==2'b00);
 	
-	assign PC=PCreg;
+	assign PCFetch=ExcADEL ? 32'h00003000 : PCIn;
 	
-	initial
-	begin
-		PCreg<=32'h00003000;
-	end
-
-	always @(posedge clk)
-	begin
-		if(reset)
-		begin
-			PCreg<=32'h00003000;
-		end
-		else
-			if(EN)
-			begin
-				PCreg<=NPC;
-			end
-	end
+	assign Instr=ExcADEL ? 0 : Instr_Fetch;
 	
 endmodule

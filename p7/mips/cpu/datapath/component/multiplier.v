@@ -25,6 +25,7 @@ module multi_divi_unit(
     input [31:0] SrcA,
     input [31:0] SrcB,
     input Start,
+	input EN,
 	input [2:0] MDUCtrl,
     output [31:0] lo,
     output [31:0] hi,
@@ -58,7 +59,7 @@ module multi_divi_unit(
 		end
 		else
 		begin
-			if(Start)
+			if(Start&EN)
 			begin
 				SrcA_reg<=SrcA;
 				SrcB_reg<=SrcB;

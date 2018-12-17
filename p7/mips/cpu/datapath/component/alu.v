@@ -24,13 +24,13 @@ module alu(
     input [31:0] SrcB,
     input [4:0] Shamt,
     input [7:0] ALUCtrl,
-    output [31:0] Result//,
-//	output zero
+    output [31:0] Result,
+	output Overflow
     );
 
 //	assign zero= Result==0;
 	
-	assign Result=	ALUCtrl==`aluAdd ? SrcA+SrcB :
+	assign Result=		ALUCtrl==`aluAdd ? SrcA+SrcB :
 						ALUCtrl==`aluSub ? SrcA-SrcB :
 						ALUCtrl==`aluAnd ? SrcA&SrcB :
 						ALUCtrl==`aluOr  ? SrcA|SrcB :
@@ -52,5 +52,11 @@ module alu(
 						ALUCtrl==`aluSrlv  ? $unsigned($unsigned(SrcB)>>SrcA[4:0]) :
 						ALUCtrl==`aluSrav  ? $signed($signed(SrcB)>>>SrcA[4:0]) :
 						0;
+	
+	wire [32:0] TempResult =  	ALUCtrl==`aluAdd ? {SrcA[31],SrcA}+{SrcB[31],SrcB}:
+								ALUCtrl==`aluSub ? {SrcA[31],SrcA}-{SrcB[31],SrcB}:
+								0;
+	
+	assign Overflow=TempResult[32]!=TempResult[31];
 	
 endmodule

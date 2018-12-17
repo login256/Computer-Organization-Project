@@ -53,7 +53,9 @@ module controller(
 	output [1:0] M1FWSel,
 	output [1:0] M2FWSel,
 	//stall
-	output stall
+	output stall,
+	//Exc
+	input ExcInOut
     );
 	
 	/*
@@ -66,6 +68,7 @@ module controller(
 	
 	main_controller MCT	(
 		.Opcode(Instr[31:26]),
+		.Rs(Instr[25:21]),
 		.Rt(Instr[20:16]),
 		.Funct(Instr[5:0]), 
 		.IsBr(IsBr), 
@@ -122,7 +125,8 @@ module controller(
 //		.MWA2(CTRMWA2), 
 		.MWA3(CTRMWA3), 
 		.MWTnew(CTRMWTnew),
-		.stall(stall)
+		.stall(stall),
+		.ExcClr(ExcInOut)
     );
 	
 //	wire [1:0] FWCTD1FWSel,FWCTD2FWSel,FWCTE1FWSel,FWCTE2FWSel,FWCTM1FWSel,FWCTM2FWSel;

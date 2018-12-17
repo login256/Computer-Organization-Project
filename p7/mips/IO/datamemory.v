@@ -56,42 +56,21 @@ module datamemory(
 		end
 		else
 		begin
-			if(WE)
+			if(A>=0&&A<MAXN)
 			begin
-			/*
-				if(by==0&&WLen==0)
-					mem[sa][7:0]=WD[7:0];
-				else if(by==0&&WLen==1)
-					mem[sa][15:0]=WD[15:0];
-				else if(by==0&&WLen==2)
-					mem[sa][23:0]=WD[23:0];
-				else if(by==0&&WLen==3)
-					mem[sa][31:0]=WD[31:0];
-				else if(by==1&&WLen==0)
-					mem[sa][15:8]=WD[15:8];
-				else if(by==1&&WLen==1)
-					mem[sa][23:8]=WD[23:8];
-				else if(by==1&&WLen==2)
-					mem[sa][31:8]=WD[31:8];
-				else if(by==2&&WLen==0)
-					mem[sa][23:16]=WD[23:16];
-				else if(by==2&&WLen==1)
-					mem[sa][31:16]=WD[31:16];
-				else if(by==3&&WLen==0)
-					mem[sa][31:24]=WD[31:24];
-				else
-					$display("????");
-			*/
-				if(ByteEN[0])
-					mem[sa][7:0]=WD[7:0];
-				if(ByteEN[1])
-					mem[sa][15:8]=WD[15:8];
-				if(ByteEN[2])
-					mem[sa][23:16]=WD[23:16];
-				if(ByteEN[3])
-					mem[sa][31:24]=WD[31:24];
-				$display("%d@%h: *%h <= %h", $time, PC, {A[31:2],2'b00}, mem[sa]);
-//				$display("@%h: *%h <= %h", PC, {A[31:2],2'b00}, mem[sa]);
+				if(WE)
+				begin
+					if(ByteEN[0])
+						mem[sa][7:0]=WD[7:0];
+					if(ByteEN[1])
+						mem[sa][15:8]=WD[15:8];
+					if(ByteEN[2])
+						mem[sa][23:16]=WD[23:16];
+					if(ByteEN[3])
+						mem[sa][31:24]=WD[31:24];
+					$display("%d@%h: *%h <= %h", $time, PC, {A[31:2],2'b00}, mem[sa]);
+//					$display("@%h: *%h <= %h", PC, {A[31:2],2'b00}, mem[sa]);
+				end
 			end
 		end
 	end

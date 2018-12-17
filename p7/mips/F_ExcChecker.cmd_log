@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p7/mips/F_ExcChecker.tfi -lib work C:/Users/lyt/Documents/project/co/p7/mips/cpu/datapath/component//F_ExcChecker.v -module F_ExcChecker -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

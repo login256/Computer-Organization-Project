@@ -30,7 +30,7 @@ module instrmemory(
 	
 	wire [31:0] adr=(PC-32'h00003000);
 	
-	assign Instr=ins[adr[2+adrbits-1:2]];
+	assign Instr= ins[adr[2+adrbits-1:2]];
 	
 	integer i;
 	
@@ -40,7 +40,8 @@ module instrmemory(
 		begin
 			ins[i]=32'h0;
 		end
-		$readmemh("./memory/code.txt",ins,0,MAXN-1);
+		$readmemh("./IO/code.txt",ins);
+		$readmemh("./IO/code_handler.txt",ins,1120,2047);
 	end
 
 endmodule

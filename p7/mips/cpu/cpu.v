@@ -22,15 +22,17 @@ module cpu(
 	input clk,
 	input reset,
 	//DM
-	input [31:0] DMDataR,
-	output [31:0] DMAdr,
-	output DMcurWE,
+	input [31:0] DataR,
+	output [31:0] Addr,
+	output OutWE,
 	output [3:0] DMByteEN,
-	output [31:0] DMDataW,
+	output [31:0] DataW,
 	output [31:0] DMcurPC,
 	//IM
 	output [31:0] PC_Fetch,
-	input [31:0] Fetch_Instr
+	input [31:0] Fetch_Instr,
+	//Int
+	input [5:0] HWInt
     );
 	
 	wire [31:0] InstrtoCT;
@@ -60,6 +62,7 @@ module cpu(
 	wire DE_RegWE,EM_RegWE,MW_RegWE;
 	
 	wire MDUBusy,DE_MDUEN;
+	wire ExcInOut;
 	
 	datapath DP (
 		.clk(clk), 
@@ -96,16 +99,20 @@ module cpu(
 		.M1FWSel(M1FWSel), 
 		.M2FWSel(M2FWSel), 
 		.stall(stall), 
-		//DM
-		.DMDataR(DMDataR), 
-		.DMAdr(DMAdr), 
-		.DMcurWE(DMcurWE), 
+		//IO
+		.DataR(DataR), 
+		.IOAddr(Addr), 
+		.OutWE(OutWE), 
 		.DMByteEN(DMByteEN), 
-		.DMDataW(DMDataW), 
+		.DataW(DataW), 
 		.DMcurPC(DMcurPC), 
 		//IM
 		.PC_Fetch(PC_Fetch), 
-		.Fetch_Instr(Fetch_Instr)
+		.Fetch_Instr(Fetch_Instr),
+		//Int
+		.HWInt(HWInt),
+		//Exc
+		.ExcInOut(ExcInOut)
     );
 	
 	controller CT (
@@ -143,7 +150,9 @@ module cpu(
 		.M1FWSel(M1FWSel), 
 		.M2FWSel(M2FWSel),
 		//ST
-		.stall(stall)
+		.stall(stall),
+		//Exc
+		.ExcInOut(ExcInOut)
     );
 	
 endmodule

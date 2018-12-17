@@ -21,7 +21,8 @@
 module DEreg(
 	input clk,
 	input reset,
-	input clr,
+	input ExcClr,
+	input StallClr,
 	//Data
 	input [31:0] RD1In,
 	input [31:0] RD2In,
@@ -53,9 +54,25 @@ module DEreg(
 	output [7:0] ALUCtrlOut,
 	output [2:0] SLCtrlOut,
 	output [2:0] MDUCtrlOut,
+	
+	//Instr
+	input [31:0] InstrIn,
+	output [31:0] InstrOut,
+	
+	//Exc
+	input BDIn,
+	output BDOut,
+	
+	input ExcGetIn,
+	input [4:0] ExcCodeIn,
+	output ExcGetOut,
+	output [4:0]ExcCodeOut,
+	
 	//PC
 	input [31:0] PCIn,
-	output [31:0] PCOut
+	output [31:0] PCOut,
+	
+	input [31:0] EPC
     );
 	
 	reg [31:0] RD1=0, RD2=0, Imm=0;
@@ -82,12 +99,23 @@ module DEreg(
 	assign SLCtrlOut=SLCtrl;
 	assign MDUCtrlOut=MDUCtrl;
 	
+	reg [31:0] Instr=0;
+	assign InstrOut=Instr;
+	
+	reg BD=0;
+	assign BDOut=BD;
+	
+	reg ExcGet=0;
+	reg [4:0] ExcCode=0;
+	assign ExcGetOut=ExcGet;
+	assign ExcCodeOut=ExcCode;
+	
 	reg [31:0] PC=0;
 	assign PCOut=PC;
 	
 	always @(posedge clk)
 	begin
-		if(reset|clr)
+		if(reset)
 		begin
 			RD1<=0;
 			RD2<=0;
@@ -103,7 +131,55 @@ module DEreg(
 			ALUCtrl<=0;
 			SLCtrl<=0;
 			MDUCtrl<=0;
+			Instr<=0;
+			BD<=0;
+			ExcGet<=0;
+			ExcCode<=0;
 			PC<=0;
+		end
+		else if(ExcClr)
+		begin
+			RD1<=0;
+			RD2<=0;
+			Imm<=0;
+			A3<=0;
+			Shamt<=0;
+			ALUBSel<=0;
+			EResultSel<=0;
+			MDUEN<=0;
+			DMWE<=0;
+			DataWBSel<=0;
+			RegWE<=0;
+			ALUCtrl<=0;
+			SLCtrl<=0;
+			MDUCtrl<=0;
+			Instr<=0;
+			BD<=0;
+			ExcGet<=0;
+			ExcCode<=0;
+			PC<=EPC;
+		end
+		else if(StallClr)
+		begin
+			RD1<=0;
+			RD2<=0;
+			Imm<=0;
+			A3<=0;
+			Shamt<=0;
+			ALUBSel<=0;
+			EResultSel<=0;
+			MDUEN<=0;
+			DMWE<=0;
+			DataWBSel<=0;
+			RegWE<=0;
+			ALUCtrl<=0;
+			SLCtrl<=0;
+			MDUCtrl<=0;
+			Instr<=0;
+			BD<=BDIn;
+			ExcGet<=0;
+			ExcCode<=0;
+			PC<=PCIn;
 		end
 		else
 		begin
@@ -121,6 +197,10 @@ module DEreg(
 			ALUCtrl<=ALUCtrlIn;
 			SLCtrl<=SLCtrlIn;
 			MDUCtrl<=MDUCtrlIn;
+			Instr<=InstrIn;
+			BD<=BDIn;
+			ExcGet<=ExcGetIn;
+			ExcCode<=ExcCodeIn;
 			PC<=PCIn;
 		end
 	end

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    00:05:24 11/16/2018 
+// Create Date:    20:33:17 12/17/2018 
 // Design Name: 
-// Module Name:    PCreg 
+// Module Name:    F_ExcJudger 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,34 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module PCmem(
-	input clk,
-	input reset,
-	input EN,
-    input [31:0] NPC,
-    output [31:0] PC
+module F_ExcChecker(
+    input ExcADEL,
+    output ExcGet,
+    output [4:0] ExcCode
     );
 	
-	reg [31:0] PCreg;
-	
-	assign PC=PCreg;
-	
-	initial
-	begin
-		PCreg<=32'h00003000;
-	end
+	assign ExcGet=ExcADEL;
+	assign ExcCode=ExcADEL? 5'd4 : 5'd0;
 
-	always @(posedge clk)
-	begin
-		if(reset)
-		begin
-			PCreg<=32'h00003000;
-		end
-		else
-			if(EN)
-			begin
-				PCreg<=NPC;
-			end
-	end
-	
 endmodule

@@ -39,6 +39,7 @@
 
 `define opcodeJAL	6'b000011
 
+`define opcodeCOP0	6'b010000
 
 //funct:
 `define functADD	6'b100000
@@ -76,6 +77,11 @@
 
 `define functJALR	6'b001001
 
+`define functERET	6'b011000
+
+//rs
+`define rsMF	5'b00000
+`define rsMT	5'b00100
 
 //rt
 `define rtBLTZ	5'b00000
@@ -130,3 +136,20 @@
 `define mduMthi		3'b101
 //`define mduMadd	3'b110
 //`define mduMaddu	3'b111
+
+//Exc
+`define ExcInt	5'd0
+`define ExcAdEL	5'd4
+`define ExcAdES	5'd5
+`define ExcRI	5'd10
+`define ExcOV	5'd12
+
+//Addr
+`define DMmin	32'h00000000
+`define DMmax	32'h00002fff
+`define IMmin	32'h00003000
+`define IMmax	32'h00004fff
+`define Dev0min	32'h00007f00
+`define Dev0max	32'h00007f0b
+`define Dev1min	32'h00007f10
+`define Dev1max	32'h00007f1b

@@ -56,15 +56,19 @@ module datapath(
 	//stall
 	input stall,
 	//DM
-	input [31:0] DMDataR,
-	output [31:0] DMAdr,
-	output DMcurWE,
+	input [31:0] DataR,
+	output [31:0] IOAddr,
+	output OutWE,
 	output [3:0] DMByteEN,
-	output [31:0] DMDataW,
+	output [31:0] DataW,
 	output [31:0] DMcurPC,
 	//IM
 	output [31:0] PC_Fetch,
-	input [31:0] Fetch_Instr
+	input [31:0] Fetch_Instr,
+	//Int
+	input [5:0] HWInt,
+	//Exc
+	output ExcInOut
     );
 	
 	//General wires
@@ -86,9 +90,17 @@ module datapath(
 	wire [31:0] DE_ImmOut;
 	wire [31:0] EM_ResultOut;
 	
+	//for Exc
+	wire [31:0] M_CP0EPCOut;
+	wire M_ExcNow;
+	wire M_IsERET;
+	wire M_ExcInOut;
+	
 	// F
 	
 	wire [31:0] F_NPC, F_curPC, F_PCAdd8;
+	
+	wire F_IsBD;
 	
 	nextPC  CalcPC(
 		.curPC(F_curPC), 
@@ -99,33 +111,79 @@ module datapath(
 		.Jump(D_Jump), 
 		.JType(D_JType), 
 		.NPC(F_NPC), 
-		.PCAdd8(F_PCAdd8)
+		.PCAdd8(F_PCAdd8),
+		.IsBD(F_IsBD)
     );
+	
+	wire [31:0] F_PCorEPC;
+	
+	mux2#32 EXC_mux_F_PCorEPC(F_NPC,M_CP0EPCOut,M_IsERET,F_PCorEPC);
+	
+	wire [31:0] F_PCtoPCreg;
+	
+	mux2#32 EXC_mux_F_PCorHandle(F_PCorEPC,32'h00004180,M_ExcNow,F_PCtoPCreg);
 	
 	PCmem PCreg(
 		.clk(clk), 
 		.reset(reset),
-		.EN(~stall),
-		.NPC(F_NPC), 
+		.EN((~stall)|M_ExcInOut),
+		.NPC(F_PCtoPCreg), 
 		.PC(F_curPC)
 	);
-	assign PC_Fetch=F_curPC;
 	
+	wire [31:0] F_IMMPCFetch, F_IMMInstr;
+	
+	wire F_ExcADEL;
+	
+	IMManager IMManager (
+		.PCIn(F_curPC), 
+		.PCFetch(F_IMMPCFetch), 
+		.Instr_Fetch(Fetch_Instr), 
+		.Instr(F_IMMInstr), 
+		.ExcADEL(F_ExcADEL)
+	);
+	
+	assign PC_Fetch=F_IMMPCFetch;
+
+	//Checker
+	
+	wire F_ExcGet;
+	wire [4:0] F_ExcCode;
+	
+	F_ExcChecker F_ExcChecker (
+		.ExcADEL(F_ExcADEL), 
+		.ExcGet(F_ExcGet), 
+		.ExcCode(F_ExcCode)
+		);
 	// FD 
 	
 //	wire [31:0] FD_InstrOut;
 	wire [31:0] FD_PCAdd8Out, FD_curPCOut;
+	wire FD_BDOut;
+	wire FD_ExcGetOut;
+	wire [4:0] FD_ExcCodeOut;
 	
 	FDreg FDreg (
 		.clk(clk), 
-		.reset(reset), 
+		.reset(reset),
+		.ExcClr(M_ExcInOut),
 		.EN(~stall), 
-		.InstrIn(Fetch_Instr), 
+		.InstrIn(F_IMMInstr), 
 		.PCAdd8In(F_PCAdd8), 
 		.curPCIn(F_curPC), 
 		.InstrOut(FD_InstrOut), 
 		.PCAdd8Out(FD_PCAdd8Out), 
-		.curPCOut(FD_curPCOut)
+		.curPCOut(FD_curPCOut),
+		//BD
+		.BDIn(F_IsBD),
+		.BDOut(FD_BDOut),
+		//Exc
+		.ExcGetIn(F_ExcGet),
+		.ExcCodeIn(F_ExcCode),
+		.ExcGetOut(FD_ExcGetOut),
+		.ExcCodeOut(FD_ExcCodeOut),
+		//EPC
+		.EPC(M_CP0EPCOut)
     );
 	
 	// D
@@ -194,6 +252,19 @@ module datapath(
 	wire [4:0] D_A3;
 	mux4#5 FC_mux_D_A3(D_rd,D_rt,D_rs,5'h1f,D_A3Sel,D_A3);
 	
+	//D_Checker
+	
+	wire D_ExcGet;
+	wire [4:0] D_ExcCode;
+	
+	D_ExcCheker D_ExcCheker(
+		.PreExcGet(FD_ExcGetOut), 
+		.PreExcCode(FD_ExcCodeOut), 
+		.Instr(FD_InstrOut), 
+		.ExcGet(D_ExcGet), 
+		.ExcCode(D_ExcCode)
+		);
+	
 	//DEreg
 	wire [31:0] DE_RD1Out, DE_RD2Out;
 //	wire [31:0] DEImmOut; 
@@ -203,12 +274,18 @@ module datapath(
 	wire [2:0] DE_SLCtrlOut,DE_MDUCtrlOut;
 	wire [7:0] DE_ALUCtrlOut;
 	
+	wire [31:0] DE_InstrOut;
+	wire DE_BDOut;
 	wire [31:0] DE_PCOut;
+	
+	wire DE_ExcGetOut;
+	wire [4:0] DE_ExcCodeOut;
 	
 	DEreg DEreg (
 		.clk(clk), 
 		.reset(reset), 
-		.clr(stall), 
+		.StallClr(stall), 
+		.ExcClr(M_ExcInOut),
 		//Data
 		.RD1In(D_RD1), 
 		.RD2In(D_RD2), 
@@ -239,9 +316,22 @@ module datapath(
 		.ALUCtrlOut(DE_ALUCtrlOut), 
 		.SLCtrlOut(DE_SLCtrlOut), 
 		.MDUCtrlOut(DE_MDUCtrlOut),
+		//Instr
+		.InstrIn(FD_InstrOut),
+		.InstrOut(DE_InstrOut),
+		//Exc
+		.ExcGetIn(D_ExcGet),
+		.ExcCodeIn(D_ExcCode),
+		.ExcGetOut(DE_ExcGetOut),
+		.ExcCodeOut(DE_ExcCodeOut),
+		//BD
+		.BDIn(FD_BDOut),
+		.BDOut(DE_BDOut),
 		//PC
 		.PCIn(FD_curPCOut), 
-		.PCOut(DE_PCOut)
+		.PCOut(DE_PCOut),
+		//EPC
+		.EPC(M_CP0EPCOut)
 	);
 	
 	assign DE_RegWE=DE_RegWEOut;
@@ -261,12 +351,14 @@ module datapath(
 	//ALU
 	
 	wire [31:0] E_ALUResult;
+	wire E_Overflow;
 	alu ALU (
 		.SrcA(E_RD1), 
 		.SrcB(E_ALUSrcB), 
 		.Shamt(DE_ShamtOut), 
 		.ALUCtrl(DE_ALUCtrlOut), 
-		.Result(E_ALUResult)
+		.Result(E_ALUResult),
+		.Overflow(E_Overflow)
 	);
 	
 	//MDU
@@ -275,22 +367,37 @@ module datapath(
 	wire E_MDUBusy,E_MDUWillBusy;
 	
 	multi_divi_unit MDU (
-    .clk(clk), 
-    .reset(reset), 
-    .SrcA(E_RD1), 
-    .SrcB(E_RD2), 
-    .Start(DE_MDUENOut), 
-    .MDUCtrl(DE_MDUCtrlOut), 
-    .lo(E_MDUlo), 
-    .hi(E_MDUhi), 
-    .Busy(E_MDUBusy),
-	.WillBusy(E_MDUWillBusy)
-    );
+		.clk(clk), 
+		.reset(reset), 
+		.SrcA(E_RD1), 
+		.SrcB(E_RD2), 
+		.Start(DE_MDUENOut),
+		.EN(~M_ExcInOut),
+		.MDUCtrl(DE_MDUCtrlOut), 
+		.lo(E_MDUlo), 
+		.hi(E_MDUhi), 
+		.Busy(E_MDUBusy),
+		.WillBusy(E_MDUWillBusy)
+	);
 	
 	assign MDUBusy=E_MDUWillBusy;
 	
 	wire [31:0] E_Result;
 	mux4#32 FC_mux_E_Result(E_ALUResult,DE_ImmOut,E_MDUlo,E_MDUhi,DE_EResultSelOut,E_Result);
+	
+	//E_Cheker
+	
+	wire E_ExcGet;
+	wire [4:0] E_ExcCode;
+	
+	E_ExcChecker E_ExcChecker (
+		.PreExcGet(DE_ExcGetOut), 
+		.PreExcCode(DE_ExcCodeOut), 
+		.Instr(DE_InstrOut), 
+		.Overflow(E_Overflow), 
+		.ExcGet(E_ExcGet), 
+		.ExcCode(E_ExcCode)
+		);
 	
 	// EM
 //	wire [31:0] EM_ResultOut;
@@ -298,33 +405,56 @@ module datapath(
 	wire [4:0] EM_A3Out;
 	wire EM_DMWEOut, EM_DataWBSelOut, EM_RegWEOut;
 	wire [2:0] EM_SLCtrlOut;
+	wire [31:0] EM_InstrOut;
 	wire [31:0] EM_PCOut;
+	wire EM_BDOut;
+	wire EM_ExcGetOut;
+	wire [4:0] EM_ExcCodeOut;
 	
 	EMreg EMreg (
-    .clk(clk), 
-    .reset(reset), 
-	//Data
-    .ResultIn(E_Result), 
-    .RD2In(E_RD2), 
-    .A3In(DE_A3Out),
+		.clk(clk), 
+		.reset(reset), 
+		.ExcClr(M_ExcInOut),
+		//Data
+		.ResultIn(E_Result), 
+		.RD2In(E_RD2), 
+		.A3In(DE_A3Out),
+		
+		.ResultOut(EM_ResultOut), 
+		.RD2Out(EM_RD2Out), 
+		.A3Out(EM_A3Out), 
+		//Ctrl
+		.DMWEIn(DE_DMWEOut), 
+		.DataWBSelIn(DE_DataWBSelOut), 
+		.RegWEIn(DE_RegWEOut), 
+		.SLCtrlIn(DE_SLCtrlOut), 
+		
+		.DMWEOut(EM_DMWEOut), 
+		.DataWBSelOut(EM_DataWBSelOut), 
+		.RegWEOut(EM_RegWEOut), 
+		.SLCtrlOut(EM_SLCtrlOut), 
+		
+		//Instr
+		.InstrIn(DE_InstrOut),
+		.InstrOut(EM_InstrOut),
+		
+		//Exc
+		.ExcGetIn(E_ExcGet),
+		.ExcCodeIn(E_ExcCode),
+		.ExcGetOut(EM_ExcGetOut),
+		.ExcCodeOut(EM_ExcCodeOut),
 	
-    .ResultOut(EM_ResultOut), 
-    .RD2Out(EM_RD2Out), 
-    .A3Out(EM_A3Out), 
-	//Ctrl
-    .DMWEIn(DE_DMWEOut), 
-    .DataWBSelIn(DE_DataWBSelOut), 
-    .RegWEIn(DE_RegWEOut), 
-    .SLCtrlIn(DE_SLCtrlOut), 
-	
-    .DMWEOut(EM_DMWEOut), 
-    .DataWBSelOut(EM_DataWBSelOut), 
-    .RegWEOut(EM_RegWEOut), 
-    .SLCtrlOut(EM_SLCtrlOut), 
-	//PC
-    .PCIn(DE_PCOut), 
-    .PCOut(EM_PCOut)
-    );
+		//BD
+		.BDIn(DE_BDOut),
+		.BDOut(EM_BDOut),
+		
+		//PC
+		.PCIn(DE_PCOut), 
+		.PCOut(EM_PCOut),
+		
+		//EPC
+		.EPC(M_CP0EPCOut)
+		);
 	
 	assign EM_RegWE=EM_RegWEOut;
 	// M
@@ -347,12 +477,70 @@ module datapath(
     .ByteEN(M_SCByteEN)
     );
 	
-	assign DMAdr=M_SCAdrout;
-	assign DMDataW=M_SCDout;
+	assign IOAddr=M_SCAdrout;
+	assign DataW=M_SCDout;
 	assign DMByteEN=M_SCByteEN;
-	assign DMcurWE=EM_DMWEOut;
+	assign OutWE=EM_DMWEOut&(~M_ExcInOut);
 	assign DMcurPC=EM_PCOut;
 	
+	//M_Checker
+	
+	wire M_ExcGet;
+	wire [4:0] M_ExcCode;
+	
+	M_ExcChecker M_ExcChecker (
+		.PreExcGet(EM_ExcGetOut),
+		.PreExcCode(EM_ExcCodeOut),
+		.Instr(EM_InstrOut), 
+		.ByteSel(EM_ResultOut[1:0]), 
+		.Addr(EM_ResultOut), 
+		.ExcGet(M_ExcGet),
+		.ExcCode(M_ExcCode)
+		);
+	
+	//CP0CT
+	
+	wire M_CPOWE;
+	wire M_MResultSel;
+//	wire M_IsERET;
+	
+	CP0Controller CP0CT (
+		.Instr(EM_InstrOut), 
+		.CP0WE(M_CP0WE), 
+		.MResultSel(M_MResultSel), 
+		.IsERET(M_IsERET)
+		);
+
+	//CP0
+	
+//	wire M_ExcNow;
+//	wire [31:0] M_CP0EPCOut;
+	wire [31:0] M_CP0Dout;
+	
+	coprocessor0 CP0 (
+		.clk(clk), 
+		.reset(reset), 
+		.A(EM_InstrOut[15:11]), 
+		.Din(EM_RD2Out),  
+		.WE(M_CP0WE), 
+		.Dout(M_CP0Dout), 
+		.ExcReq(M_ExcGet),
+		.ExcCodeIn(M_ExcCode),
+		.PCIn(EM_PCOut[31:2]), 
+		.BDIn(EM_BDOut), 
+		.HWInt(HWInt), 
+		.ExcNow(M_ExcNow), 
+		.EXLClr(M_IsERET), 
+		.EPCOut(M_CP0EPCOut)
+    );
+	
+//	wire M_ExcInOut;
+	assign M_ExcInOut=M_IsERET|M_ExcNow;
+	assign ExcInOut=M_ExcInOut;
+	
+	wire [31:0] M_Result;
+	
+	mux2#32 FC_mux_M_Result(EM_ResultOut,M_CP0Dout,M_MResultSel,M_Result);
 	
 	//MW 
 	
@@ -367,12 +555,13 @@ module datapath(
 	
 	MWreg MWreg (
 		.clk(clk), 
-		.reset(reset), 
+		.reset(reset),
+		.ExcClr(M_ExcInOut),
 		//Data
-		.ResultIn(EM_ResultOut), 
+		.ResultIn(M_Result), 
 		.RD2In(M_RD2),
 		.A3In(EM_A3Out), 
-		.DMDataRIn(DMDataR),
+		.DMDataRIn(DataR),
 		.ResultOut(MW_ResultOut), 
 		.RD2Out(MW_RD2Out),
 		.A3Out(MW_A3Out),
@@ -408,7 +597,8 @@ module datapath(
 	
 	//wire [31:0] W_Result;
 	
-	mux2#32 FC_mux_M_Result(MW_ResultOut,W_LCDout,MW_DataWBSelOut,W_ResultOut);
+	mux2#32 FC_mux_W_Result(MW_ResultOut,W_LCDout,MW_DataWBSelOut,W_ResultOut);
+	
 	assign W_Result=W_ResultOut;
 	
 endmodule
