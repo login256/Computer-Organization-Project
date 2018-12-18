@@ -65,7 +65,7 @@ module coprocessor0(
 	
 	assign Dout= A>=12&&A<=15 ? Value[A] : 0;
 	
-	assign ExcNow=ExcReq|((~EXL)&IE&(|(HWInt&IM)));
+	assign ExcNow=ExcReq|((~EXL)&IE&(|(IP&IM)));
 	
 	always @(posedge clk)
 	begin

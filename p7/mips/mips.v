@@ -20,8 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module mips(
     input clk,
-    input reset,
-	output [31:0] Addr
+    input reset
     );
 
 	wire [31:0] Addr, DMcurPC;
@@ -32,6 +31,7 @@ module mips(
 	wire [31:0] PC_Fetch, Fetch_Instr;
 	
 	wire [5:0] HWInt;
+	
 	
 	cpu CPU (
 		.clk(clk), 
@@ -45,7 +45,7 @@ module mips(
 		.PC_Fetch(PC_Fetch), 
 		.Fetch_Instr(Fetch_Instr),
 		.HWInt(HWInt)
-    );
+	);
 	
 	wire [31:0] SBrRD;
 	

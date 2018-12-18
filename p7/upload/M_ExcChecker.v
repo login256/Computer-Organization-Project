@@ -112,19 +112,31 @@ module M_ExcChecker(
 	
 	wire InDMRage=(`DMmin<=Addr&&Addr<=`DMmax);
 	
-	wire InDevWriteRage=(`Dev0min<=Addr&&Addr<`Dev0max)||(`Dev1min<=Addr&&Addr<`Dev1max);
-	wire InDevReadRage=(`Dev0min<=Addr&&Addr<=`Dev0max)||(`Dev1min<=Addr&&Addr<=`Dev1max);
+	wire InDevRage=(`Dev0min<=Addr&&Addr<=`Dev0max)||(`Dev1min<=Addr&&Addr<=`Dev1max);
 	
-	assign ExcGet=PreExcGet| (HalfAlign&(ByteSel[0]!=1'd0)) | (WordAlign&(ByteSel!=2'd0));
+	wire NoWriteAddr= Addr==32'h7f08||Addr==32'h7f18;
+	
+	assign ExcGet=	PreExcGet |
+					(HalfAlign&(ByteSel[0]!=1'd0)&Store) |
+					(HalfAlign&(ByteSel[0]!=1'd0)&Load) |
+					(WordAlign&(ByteSel!=2'd0)&Store) |
+					(WordAlign&(ByteSel!=2'd0)&Load) |
+					(Store & (~(InDMRage|InDevRage))) |
+					(Store & NoWriteAddr) |
+					(Store & InDevRage & (~WordAlign)) |
+					(Load & (~(InDMRage|InDevRage))) |
+					(Load & InDevRage & (~WordAlign)) |
+					1'b0;
 	
 	assign ExcCode=	PreExcGet ? PreExcCode :
 					(HalfAlign&(ByteSel[0]!=1'd0)&Store) ? `ExcAdES :
 					(HalfAlign&(ByteSel[0]!=1'd0)&Load) ? `ExcAdEL :
 					(WordAlign&(ByteSel!=2'd0)&Store) ? `ExcAdES :
 					(WordAlign&(ByteSel!=2'd0)&Load) ? `ExcAdEL :
-					(Store & (~(InDMRage|InDevWriteRage))) ? `ExcAdES :
-					(Store & InDevWriteRage & (~WordAlign)) ? `ExcAdES :
-					(Load & (~(InDMRage|InDevReadRage))) ? `ExcAdEL :
-					(Load & InDevReadRage & (~WordAlign)) ? `ExcAdEL :
+					(Store & (~(InDMRage|InDevRage))) ? `ExcAdES :
+					(Store & NoWriteAddr) ? `ExcAdES :
+					(Store & InDevRage & (~WordAlign)) ? `ExcAdES :
+					(Load & (~(InDMRage|InDevRage))) ? `ExcAdEL :
+					(Load & InDevRage & (~WordAlign)) ? `ExcAdEL :
 					5'd0;
 endmodule
