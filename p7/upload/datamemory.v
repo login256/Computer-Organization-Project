@@ -69,7 +69,8 @@ module datamemory(
 					if(ByteEN[3])
 						mem[sa][31:24]=WD[31:24];
 					$display("%d@%h: *%h <= %h", $time, PC, {A[31:2],2'b00}, mem[sa]);
-//					$display("@%h: *%h <= %h", PC, {A[31:2],2'b00}, mem[sa]);
+//					if(PC<32'h4180)
+//						$display("@%h: *%h <= %h", PC, {A[31:2],2'b00}, mem[sa]);
 				end
 			end
 		end

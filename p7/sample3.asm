@@ -22,9 +22,19 @@ li $5, 0x7f00
 lw $6, 8($5)
 sw $6, 8($5)
 
-j next
+j next1
 	add $5, $2, $3
-next:
+next1:
+
+beq $0, $0, next2
+	add $5, $2, $3
+next2:
+
+bne $0, $0, next3
+	add $5, $2, $3
+next3:
+
+
 
 la $8 j_1_end
 addi $8, $8, -1

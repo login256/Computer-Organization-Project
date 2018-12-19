@@ -20,6 +20,27 @@ _main_handler:
 	
 	bne $t0, $0, handler_if_1_end	#Int
 	nop
+		
+		mfc0 $s1, $13
+		
+		andi $t0, $s1, 0x400
+		beq $t0, $0, _handler_Int_if_1_end	#if s1[10]!=0
+		nop
+			li $t0, 0x7f00
+			lw $t1, 0($t0)
+			ori $t1, $t1, 0x1
+			sw $t1, 0($t0)
+		_handler_Int_if_1_end:
+		
+		andi $t0, $s1, 0x800
+		beq $t0, $0, _handler_Int_if_2_end	#if s1[11]!=0
+		nop
+			li $t0, 0x7f10
+			lw $t1, 0($t0)
+			ori $t1, $t1, 0x1
+			sw $t1, 0($t0)
+		_handler_Int_if_2_end:
+		
 		li $t1, 0x1000
 		lw $t2, -12($t1)
 		addiu $t2, $t2, 1

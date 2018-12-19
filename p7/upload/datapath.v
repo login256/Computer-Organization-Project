@@ -111,8 +111,8 @@ module datapath(
 		.Jump(D_Jump), 
 		.JType(D_JType), 
 		.NPC(F_NPC), 
-		.PCAdd8(F_PCAdd8),
-		.IsBD(F_IsBD)
+		.PCAdd8(F_PCAdd8)//,
+//		.IsBD(F_IsBD)
     );
 	
 	wire [31:0] F_PCorEPC;
@@ -175,7 +175,8 @@ module datapath(
 		.PCAdd8Out(FD_PCAdd8Out), 
 		.curPCOut(FD_curPCOut),
 		//BD
-		.BDIn(F_IsBD),
+//		.BDIn(F_IsBD),
+		.BDIn(D_IsBr|D_Jump),
 		.BDOut(FD_BDOut),
 		//Exc
 		.ExcGetIn(F_ExcGet),
