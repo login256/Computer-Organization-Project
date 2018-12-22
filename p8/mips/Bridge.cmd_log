@@ -1,0 +1,5 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p7/mips/Bridge.tfi -lib work C:/Users/lyt/Documents/project/co/p7/mips/IO//Bridge.v -module Bridge -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.xst" -ofn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.xst" -ofn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.xst" -ofn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.syr" 
+xst -intstyle ise -ifn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.xst" -ofn "C:/Users/lyt/Documents/project/co/p7/mips/Bridge.syr" 

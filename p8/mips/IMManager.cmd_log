@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p7/mips/IMManager.tfi -lib work C:/Users/lyt/Documents/project/co/p7/mips/cpu/datapath/component//IMManager.v -module IMManager -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
