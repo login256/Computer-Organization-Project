@@ -19,16 +19,29 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module datamemory(
-	input clk,
+	input clk_double,
 	input reset,
-    input [31:0] A,
-    input [31:0] WD,
-    input WE,
+	input [31:0] A,
+	input [31:0] WD,
+	input WE,
 	input [3:0] ByteEN,
-    output [31:0] RD,
-	input [31:0] PC
+	output [31:0] RD//,
+//	input [31:0] PC
     );
 	
+	
+	wire [3:0] WEA={4{WE}}&ByteEN;
+	
+	DM_BlockRAM DM_BlockRAM (
+		.clka(clk_double), // input clka
+		.wea(WEA), // input [3 : 0] wea
+		.addra(A[14:2]), // input [12 : 0] addra
+		.dina(WD), // input [31 : 0] dina
+		.douta(RD) // output [31 : 0] douta
+		);	
+	
+	
+	/*
 	parameter adrbits=12;
 	parameter MAXN=(1<<adrbits);
 	reg [31:0] mem[MAXN-1:0];
@@ -75,5 +88,5 @@ module datamemory(
 			end
 		end
 	end
-
+	*/
 endmodule

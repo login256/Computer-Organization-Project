@@ -32,7 +32,11 @@ module multi_divi_unit(
     output Busy,
 	output WillBusy
     );
-	
+	assign WillBusy=0;
+	assign lo=0;
+	assign hi=0;
+	assign Busy=0;
+	/*
 	reg [3:0] counter=0;
 	
 	assign Busy=~(counter==0);
@@ -115,5 +119,5 @@ module multi_divi_unit(
 			end
 		end
 	end
-
+	*/
 endmodule

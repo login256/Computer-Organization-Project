@@ -5,7 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/lyt/Documents/project/co/p7/mips/cpu/datapath/datapath.v" Line 105: Port <arg fmt="%s" index="1">IsBD</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/lyt/Documents/project/co/p8/mips/mips.v" Line 139: Port <arg fmt="%s" index="1">Dev2Addr</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/lyt/Documents/project/co/p8/mips/cpu/datapath/datapath.v" Line 105: Port <arg fmt="%s" index="1">IsBD</arg> is not connected to this instance
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Users/lyt/Documents/project/co/p8/mips/mips.v" Line 146: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">Dev0Addr</arg>&gt;. Formal port size is <arg fmt="%d" index="2">32</arg>-bit while actual signal size is <arg fmt="%d" index="1">8</arg>-bit.
 </msg>
 
 <msg type="warning" file="Simulator" num="0" delta="unknown" >Unable to copy libPortabilityNOSH.dll to the simulation executable directory: <arg fmt="%s" index="1">boost::filesystem::copy_file: ￏﾵￍﾳￕￒﾲﾻﾵﾽￖﾸﾶﾨﾵￄￂﾷﾾﾶﾡﾣ, &quot;isim\mips_tb_isim_beh.exe.sim\libPortability.dll&quot;</arg>.

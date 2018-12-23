@@ -26,7 +26,7 @@
 module timer(
     input clk,
     input reset,
-    input [31:0] Addr,
+    input [7:0] Addr,
     input WE,
     input [31:0] Din,
     output [31:0] Dout,

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-12-22T20:02:37</DateModified>
-  <ModuleName>cpu</ModuleName>
-  <SummaryTimeStamp>2018-12-11T16:10:50</SummaryTimeStamp>
+  <DateModified>2018-12-22T21:50:16</DateModified>
+  <ModuleName>mips</ModuleName>
+  <SummaryTimeStamp>2018-12-22T21:49:48</SummaryTimeStamp>
   <SavedFilePath>C:/Users/lyt/Documents/project/co/p8/mips/iseconfig/cpu.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/lyt/Documents/project/co/p8/mips\</ImplementationReportsDirectory>
-  <DateInitialized>2018-12-11T18:02:49</DateInitialized>
+  <DateInitialized>2018-12-22T21:50:16</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

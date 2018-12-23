@@ -146,10 +146,24 @@
 
 //Addr
 `define DMmin	32'h00000000
-`define DMmax	32'h00002fff
+`define DMmax	32'h00001fff
 `define IMmin	32'h00003000
 `define IMmax	32'h00004fff
+//timer
 `define Dev0min	32'h00007f00
 `define Dev0max	32'h00007f0b
+//UART
 `define Dev1min	32'h00007f10
-`define Dev1max	32'h00007f1b
+`define Dev1max	32'h00007f2b
+//64bit switch
+`define Dev2min	32'h00007f2c
+`define Dev2max	32'h00007f33
+//32bit LED
+`define Dev3min	32'h00007f34
+`define Dev3max	32'h00007f37
+//9/8 digit
+`define Dev4min	32'h00007f38
+`define Dev4max	32'h00007f3f
+//8 user button
+`define Dev5min	32'h00007f40
+`define Dev5max	32'h00007f43

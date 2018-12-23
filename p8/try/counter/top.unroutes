@@ -1,0 +1,50 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sat Dec 22 23:52:32 2018
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 38 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   dip_switch4<0>_IBUF
+   dip_switch4<1>_IBUF
+   dip_switch4<2>_IBUF
+   dip_switch4<3>_IBUF
+   dip_switch4<4>_IBUF
+   dip_switch4<5>_IBUF
+   dip_switch4<6>_IBUF
+   dip_switch4<7>_IBUF
+   dip_switch5<0>_IBUF
+   dip_switch5<1>_IBUF
+   dip_switch5<2>_IBUF
+   dip_switch5<3>_IBUF
+   dip_switch5<4>_IBUF
+   dip_switch5<5>_IBUF
+   dip_switch5<6>_IBUF
+   dip_switch5<7>_IBUF
+   dip_switch6<0>_IBUF
+   dip_switch6<1>_IBUF
+   dip_switch6<2>_IBUF
+   dip_switch6<3>_IBUF
+   dip_switch6<4>_IBUF
+   dip_switch6<5>_IBUF
+   dip_switch6<6>_IBUF
+   dip_switch6<7>_IBUF
+   dip_switch7<0>_IBUF
+   dip_switch7<1>_IBUF
+   dip_switch7<2>_IBUF
+   dip_switch7<3>_IBUF
+   dip_switch7<4>_IBUF
+   dip_switch7<5>_IBUF
+   dip_switch7<6>_IBUF
+   dip_switch7<7>_IBUF
+   user_key<2>_IBUF
+   user_key<3>_IBUF
+   user_key<4>_IBUF
+   user_key<5>_IBUF
+   user_key<6>_IBUF
+   user_key<7>_IBUF
+
+

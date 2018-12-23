@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p8/mips/led_driver.tfi -lib work C:/Users/lyt/Documents/project/co/p8/mips/IO/Device//led_driver.v -module led_driver -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

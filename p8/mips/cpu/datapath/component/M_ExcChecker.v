@@ -112,9 +112,12 @@ module M_ExcChecker(
 	
 	wire InDMRage=(`DMmin<=Addr&&Addr<=`DMmax);
 	
-	wire InDevRage=(`Dev0min<=Addr&&Addr<=`Dev0max)||(`Dev1min<=Addr&&Addr<=`Dev1max);
+	wire InDevRage=	(`Dev0min<=Addr&&Addr<=`Dev0max)||
+					(`Dev1min<=Addr&&Addr<=`Dev1max)||
+					(`Dev2min<=Addr&&Addr<=`Dev2max)||
+					(`Dev3min<=Addr&&Addr<=`Dev3max);
 	
-	wire NoWriteAddr= Addr==32'h7f08||Addr==32'h7f18;
+	wire NoWriteAddr= Addr==32'h7f08;
 	
 	assign ExcGet=	PreExcGet |
 					(HalfAlign&(ByteSel[0]!=1'd0)&Store) |
