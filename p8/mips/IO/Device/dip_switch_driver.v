@@ -38,8 +38,8 @@ module dip_switch_driver(
 	
 	reg [31:0] value [1:0];
 	
-	assign Dout=	Addr==`Dev2min+0 ? value[0] :
-					Addr==`Dev2min+4 ? value[1] :
+	assign Dout=	Addr==`Dev2begin+0 ? value[0] :
+					Addr==`Dev2begin+4 ? value[1] :
 					0;
 	
 	always@(posedge clk)

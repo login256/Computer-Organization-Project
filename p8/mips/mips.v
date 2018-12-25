@@ -37,7 +37,15 @@ module mips(
 	input [7:0] user_key,
 	
 	//led_light
-	output [31:0] led_light
+	output [31:0] led_light,
+	
+	//tube
+	output [7:0] digital_tube0,
+	output [3:0] digital_tube_sel0,
+	output [7:0] digital_tube1,
+	output [3:0] digital_tube_sel1,
+	output [7:0] digital_tube2,
+	output digital_tube_sel2
     );
 	
 	wire reset=~sys_rstn;
@@ -168,7 +176,7 @@ module mips(
 		.Dev4WE(Dev4WE), 
 		.Dev4RD(Dev4RD),
 		
-		.Dev5RD(Dev2RD)
+		.Dev5RD(Dev5RD)
 	);
 
 	//Dev0
@@ -185,7 +193,7 @@ module mips(
 	
 	//Dev1
 	//Dev2
-	dip_switch_driver Dip_switch_driver (
+	dip_switch_driver Switch_driver (
 		.clk(clk), 
 		.reset(reset), 
 		.Addr(Dev2Addr), 
@@ -210,8 +218,22 @@ module mips(
 		);
 		
 	//Dev4
+	digital_tube_driver Tube_driver (
+		.clk(clk), 
+		.reset(reset), 
+		.Addr(Dev4Addr), 
+		.WE(Dev4WE), 
+		.Din(Dev4WD), 
+		.Dout(Dev4RD), 
+		.digital_tube0(digital_tube0), 
+		.digital_tube_sel0(digital_tube_sel0), 
+		.digital_tube1(digital_tube1), 
+		.digital_tube_sel1(digital_tube_sel1), 
+		.digital_tube2(digital_tube2), 
+		.digital_tube_sel2(digital_tube_sel2)
+		);
 	//Dev5
-	user_keys_driver User_keys_driver (
+	user_keys_driver Keys_driver (
 		.clk(clk), 
 		.reset(reset), 
 		.Dout(Dev5RD), 

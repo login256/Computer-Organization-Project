@@ -54,4 +54,5 @@ IM_BlockRAM\simulation\timing\wave_mti.do
 IM_BlockRAM\simulation\timing\wave_ncsim.sv
 IM_BlockRAM_flist.txt
 IM_BlockRAM_xmdf.tcl
+_xmsgs\pn_parser.xmsgs
 summary.log

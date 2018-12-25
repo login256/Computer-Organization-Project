@@ -131,3 +131,42 @@ NET "led_light[28]"  LOC = B16 | IOSTANDARD = LVCMOS33;
 NET "led_light[29]"  LOC = D16 | IOSTANDARD = LVCMOS33;
 NET "led_light[30]"  LOC = C16 | IOSTANDARD = LVCMOS33;
 NET "led_light[31]"  LOC = B18 | IOSTANDARD = LVCMOS33;
+
+#**************************************************************
+# Digital Tube
+#**************************************************************
+NET "digital_tube2[7]"   LOC = D19 | IOSTANDARD = LVCMOS33;        
+NET "digital_tube2[6]"   LOC = B20 | IOSTANDARD = LVCMOS33;        
+NET "digital_tube2[5]"   LOC = D21 | IOSTANDARD = LVCMOS33;
+NET "digital_tube2[4]"   LOC = D20 | IOSTANDARD = LVCMOS33;     
+NET "digital_tube2[3]"   LOC = H15 | IOSTANDARD = LVCMOS33;     
+NET "digital_tube2[2]"   LOC = B22 | IOSTANDARD = LVCMOS33;     
+NET "digital_tube2[1]"   LOC = A21 | IOSTANDARD = LVCMOS33;
+NET "digital_tube2[0]"   LOC = A22 | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel2"  LOC = J17 | IOSTANDARD = LVCMOS33;
+      
+NET "digital_tube1[7]"      LOC = A20  | IOSTANDARD = LVCMOS33;        
+NET "digital_tube1[6]"      LOC = E19  | IOSTANDARD = LVCMOS33;        
+NET "digital_tube1[5]"      LOC = E20  | IOSTANDARD = LVCMOS33;
+NET "digital_tube1[4]"      LOC = A19  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube1[3]"      LOC = F17  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube1[2]"      LOC = E18  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube1[1]"      LOC = C21  | IOSTANDARD = LVCMOS33;
+NET "digital_tube1[0]"      LOC = C17  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel1[0]"  LOC = G17  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel1[1]"  LOC = C19  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel1[2]"  LOC = F18  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel1[3]"  LOC = C20  | IOSTANDARD = LVCMOS33;
+
+NET "digital_tube0[7]"      LOC = E17  | IOSTANDARD = LVCMOS33;        
+NET "digital_tube0[6]"      LOC = J14  | IOSTANDARD = LVCMOS33;        
+NET "digital_tube0[5]"      LOC = B12  | IOSTANDARD = LVCMOS33;
+NET "digital_tube0[4]"      LOC = F16  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube0[3]"      LOC = C18  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube0[2]"      LOC = D18  | IOSTANDARD = LVCMOS33;     
+NET "digital_tube0[1]"      LOC = D13  | IOSTANDARD = LVCMOS33;
+NET "digital_tube0[0]"      LOC = A18  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel0[0]"  LOC = E16  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel0[1]"  LOC = A17  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel0[2]"  LOC = C15  | IOSTANDARD = LVCMOS33;
+NET "digital_tube_sel0[3]"  LOC = G14  | IOSTANDARD = LVCMOS33;

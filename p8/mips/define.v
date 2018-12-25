@@ -158,15 +158,18 @@
 //UART
 `define Dev1min	32'h00007f10
 `define Dev1max	32'h00007f2b
+`define Dev1begin	8'h10
 //64bit switch
 `define Dev2min	32'h00007f2c
 `define Dev2max	32'h00007f33
+`define Dev2begin	8'h2c
 //32bit LED
 `define Dev3min	32'h00007f34
 `define Dev3max	32'h00007f37
-//9/8 digit
+//9/8 digital tube
 `define Dev4min	32'h00007f38
 `define Dev4max	32'h00007f3f
+`define Dev4begin	8'h38
 //8 user button
 `define Dev5min	32'h00007f40
 `define Dev5max	32'h00007f43
