@@ -1,4 +1,3 @@
-`include "..\..\cpu\define.v"
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -22,7 +21,6 @@
 module led_driver(
 	input clk,
 	input reset,
-	input [7:0] Addr,
 	input WE,
 	input [31:0] Din,
 	output [31:0] Dout,

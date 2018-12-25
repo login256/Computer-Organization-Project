@@ -34,6 +34,7 @@ module datamemory(
 	
 	DM_BlockRAM DM_BlockRAM (
 		.clka(clk_double), // input clka
+		.rsta(reset), // input rsta
 		.wea(WEA), // input [3 : 0] wea
 		.addra(A[14:2]), // input [12 : 0] addra
 		.dina(WD), // input [31 : 0] dina

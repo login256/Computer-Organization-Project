@@ -22,7 +22,7 @@ module mips(
 	input clk_in,
 	input sys_rstn,
 //	input reset,
-
+	
 	//dip_switch
 	input [7:0] dip_switch0,
 	input [7:0] dip_switch1,
@@ -155,10 +155,20 @@ module mips(
 		.Dev1RD(Dev1RD),
 		.Dev1IRQ(Dev1IRQ),
 		
+		.Dev2Addr(Dev2Addr), 
+		.Dev2RD(Dev2RD),
+		
 		.Dev3Addr(Dev3Addr), 
 		.Dev3WD(Dev3WD), 
 		.Dev3WE(Dev3WE), 
-		.Dev3RD(Dev3RD)
+		.Dev3RD(Dev3RD),
+		
+		.Dev4Addr(Dev4Addr), 
+		.Dev4WD(Dev4WD), 
+		.Dev4WE(Dev4WE), 
+		.Dev4RD(Dev4RD),
+		
+		.Dev5RD(Dev2RD)
 	);
 
 	//Dev0
@@ -175,19 +185,38 @@ module mips(
 	
 	//Dev1
 	//Dev2
-	
+	dip_switch_driver Dip_switch_driver (
+		.clk(clk), 
+		.reset(reset), 
+		.Addr(Dev2Addr), 
+		.Dout(Dev2RD), 
+		.dip_switch0(dip_switch0), 
+		.dip_switch1(dip_switch1), 
+		.dip_switch2(dip_switch2), 
+		.dip_switch3(dip_switch3), 
+		.dip_switch4(dip_switch4), 
+		.dip_switch5(dip_switch5), 
+		.dip_switch6(dip_switch6), 
+		.dip_switch7(dip_switch7)
+    );
 	//Dev3
 	led_driver LED_driver (
 		.clk(clk), 
-		.reset(reset), 
-		.Addr(Dev3Addr), 
-		.WE(Dev3WE), 
+		.reset(reset),
+		.WE(Dev3WE),
 		.Din(Dev3WD), 
 		.Dout(Dev3RD), 
 		.led_light_pin(led_light)
 		);
 		
-		
+	//Dev4
+	//Dev5
+	user_keys_driver User_keys_driver (
+		.clk(clk), 
+		.reset(reset), 
+		.Dout(Dev5RD), 
+		.user_key(user_key)
+    );
 	
 	instrmemory IM(
 		.clk(clk_double),

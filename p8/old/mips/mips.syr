@@ -1,0 +1,1328 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.29 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.29 secs
+ 
+--> Reading design: mips.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mips.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mips"
+Output Format                      : NGC
+Target Device                      : xc6slx100-2-fgg676
+
+---- Source Options
+Top Module Name                    : mips
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"IPcore/IM" "IPcore/DM" "IPcore"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\CLOCK.v" into library work
+Parsing module <CLOCK>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\savecalc.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <savecalc>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\regfile.v" into library work
+Parsing module <regfile>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\PCreg.v" into library work
+Parsing module <PCmem>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\nextPC.v" into library work
+Parsing module <nextPC>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\M_ExcChecker.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <M_ExcChecker>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\MWreg.v" into library work
+Parsing module <MWreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\mux4.v" into library work
+Parsing module <mux4>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\mux2.v" into library work
+Parsing module <mux2>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\multiplier.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <multi_divi_unit>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\loadcalc.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <loadcalc>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\IMManager.v" into library work
+Parsing module <IMManager>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\F_ExcChecker.v" into library work
+Parsing module <F_ExcChecker>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\FDreg.v" into library work
+Parsing module <FDreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\E_ExcChecker.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <E_ExcChecker>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\ext.v" into library work
+Parsing module <ext>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\EMreg.v" into library work
+Parsing module <EMreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\D_ExcCheker.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <D_ExcCheker>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\DEreg.v" into library work
+Parsing module <DEreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\CP0Controller.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <CP0Controller>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\coprocessor0.v" into library work
+Parsing module <coprocessor0>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\Branch_Control.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <Branch_Control>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\alu.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <alu>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\stall_controller.v" into library work
+Parsing module <stall_controller>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\main_controller.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <main_controller>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\forward_controller.v" into library work
+Parsing module <forward_controller>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\CTreg.v" into library work
+Parsing module <CTreg>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\ATDecoder.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\/..\..\define.v" included at line 1.
+Parsing module <ATDecoder>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\IM\IM_BlockRAM.v" into library work
+Parsing module <IM_BlockRAM>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\DM\DM_BlockRAM.v" into library work
+Parsing module <DM_BlockRAM>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v" into library work
+Parsing module <datapath>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\controller.v" into library work
+Parsing module <controller>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IO\SouthBridge.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\/..\cpu\define.v" included at line 1.
+Parsing module <SouthBridge>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IO\NorthBridge.v" into library work
+Parsing verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\/..\cpu\define.v" included at line 1.
+Parsing module <NorthBridge>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IO\instrmemory.v" into library work
+Parsing module <instrmemory>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IO\Device\timer.v" into library work
+Parsing module <timer>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\IO\datamemory.v" into library work
+Parsing module <datamemory>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\cpu\cpu.v" into library work
+Parsing module <cpu>.
+Analyzing Verilog file "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" into library work
+Parsing module <mips>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 139: Port Dev2Addr is not connected to this instance
+
+Elaborating module <mips>.
+
+Elaborating module <CLOCK>.
+
+Elaborating module <IBUFG>.
+
+Elaborating module <DCM_SP(CLKDV_DIVIDE=2.0,CLKFX_DIVIDE=1,CLKFX_MULTIPLY=4,CLKIN_DIVIDE_BY_2="FALSE",CLKIN_PERIOD=40.0,CLKOUT_PHASE_SHIFT="NONE",CLK_FEEDBACK="2X",DESKEW_ADJUST="SYSTEM_SYNCHRONOUS",PHASE_SHIFT=0,STARTUP_WAIT="FALSE")>.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\CLOCK.v" Line 128: Assignment to locked_int ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\CLOCK.v" Line 129: Assignment to status_int ignored, since the identifier is never used
+
+Elaborating module <BUFG>.
+
+Elaborating module <cpu>.
+WARNING:HDLCompiler:1016 - "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v" Line 105: Port IsBD is not connected to this instance
+
+Elaborating module <datapath>.
+
+Elaborating module <nextPC>.
+
+Elaborating module <mux2(WIDTH=32)>.
+
+Elaborating module <PCmem>.
+
+Elaborating module <IMManager>.
+
+Elaborating module <F_ExcChecker>.
+
+Elaborating module <FDreg>.
+
+Elaborating module <regfile>.
+"C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\regfile.v" Line 61. $display  32'b................................ 5'b..... 32'b................................
+
+Elaborating module <mux4(WIDTH=32)>.
+
+Elaborating module <ext>.
+
+Elaborating module <Branch_Control>.
+
+Elaborating module <mux4(WIDTH=5)>.
+
+Elaborating module <D_ExcCheker>.
+
+Elaborating module <DEreg>.
+
+Elaborating module <alu>.
+
+Elaborating module <multi_divi_unit>.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v" Line 380: Assignment to E_MDUBusy ignored, since the identifier is never used
+
+Elaborating module <E_ExcChecker>.
+
+Elaborating module <EMreg>.
+
+Elaborating module <savecalc>.
+
+Elaborating module <M_ExcChecker>.
+
+Elaborating module <CP0Controller>.
+
+Elaborating module <coprocessor0>.
+
+Elaborating module <MWreg>.
+
+Elaborating module <loadcalc>.
+
+Elaborating module <controller>.
+
+Elaborating module <main_controller>.
+
+Elaborating module <ATDecoder>.
+
+Elaborating module <CTreg>.
+
+Elaborating module <forward_controller>.
+
+Elaborating module <stall_controller>.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 71: Assignment to DMcurPC ignored, since the identifier is never used
+
+Elaborating module <NorthBridge>.
+
+Elaborating module <datamemory>.
+
+Elaborating module <DM_BlockRAM>.
+WARNING:HDLCompiler:1499 - "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\DM\DM_BlockRAM.v" Line 39: Empty module <DM_BlockRAM> remains a black box.
+
+Elaborating module <SouthBridge>.
+WARNING:HDLCompiler:189 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 146: Size mismatch in connection of port <Dev0Addr>. Formal port size is 32-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 152: Assignment to Dev1Addr ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 153: Assignment to Dev1WD ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 154: Assignment to Dev1WE ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 158: Assignment to Dev3Addr ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 159: Assignment to Dev3WD ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 160: Assignment to Dev3WE ignored, since the identifier is never used
+
+Elaborating module <timer>.
+"C:\Users\lyt\Documents\project\co\p8\mips\IO\Device\timer.v" Line 74. $display miao miao miao?
+"C:\Users\lyt\Documents\project\co\p8\mips\IO\Device\timer.v" Line 76. $display miao miao miao?2
+
+Elaborating module <instrmemory>.
+
+Elaborating module <IM_BlockRAM>.
+WARNING:HDLCompiler:1499 - "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\IM\IM_BlockRAM.v" Line 39: Empty module <IM_BlockRAM> remains a black box.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 118: Net <Dev1RD[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 119: Net <Dev1IRQ> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 126: Net <Dev3RD[31]> does not have a driver.
+WARNING:HDLCompiler:552 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" Line 139: Input port Dev2RD[31] is not connected on this instance
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <mips>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\mips.v".
+WARNING:Xst:2898 - Port 'Dev2RD', unconnected in block instance 'SBr', is tied to GND.
+WARNING:Xst:2898 - Port 'Dev4RD', unconnected in block instance 'SBr', is tied to GND.
+WARNING:Xst:2898 - Port 'Dev5RD', unconnected in block instance 'SBr', is tied to GND.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 63: Output port <DMcurPC> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev1Addr> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev1WD> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev2Addr> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev2WD> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev3Addr> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev3WD> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev4Addr> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev4WD> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev5Addr> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev5WD> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev1WE> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev2WE> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev3WE> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev4WE> of the instance <SBr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\mips.v" line 139: Output port <Dev5WE> of the instance <SBr> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <Dev1RD> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <Dev3RD> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <Dev1IRQ> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Summary:
+	no macro.
+Unit <mips> synthesized.
+
+Synthesizing Unit <CLOCK>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IPcore\CLOCK.v".
+    Summary:
+	no macro.
+Unit <CLOCK> synthesized.
+
+Synthesizing Unit <cpu>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\cpu.v".
+    Summary:
+	no macro.
+Unit <cpu> synthesized.
+
+Synthesizing Unit <datapath>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v".
+WARNING:Xst:647 - Input <M1FWSel> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v" line 105: Output port <IsBD> of the instance <CalcPC> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\datapath.v" line 370: Output port <Busy> of the instance <MDU> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <datapath> synthesized.
+
+Synthesizing Unit <nextPC>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\nextPC.v".
+    Found 32-bit adder for signal <PCAdd4> created at line 36.
+    Found 32-bit adder for signal <PCAdd8> created at line 37.
+    Found 32-bit adder for signal <BrPC> created at line 41.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred   3 Multiplexer(s).
+Unit <nextPC> synthesized.
+
+Synthesizing Unit <mux2>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\mux2.v".
+        WIDTH = 32
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux2> synthesized.
+
+Synthesizing Unit <PCmem>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\PCreg.v".
+    Found 32-bit register for signal <PCreg>.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <PCmem> synthesized.
+
+Synthesizing Unit <IMManager>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\IMManager.v".
+    Found 32-bit comparator lessequal for signal <n0000> created at line 29
+    Found 32-bit comparator lessequal for signal <n0002> created at line 29
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   2 Multiplexer(s).
+Unit <IMManager> synthesized.
+
+Synthesizing Unit <F_ExcChecker>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\F_ExcChecker.v".
+    Summary:
+	no macro.
+Unit <F_ExcChecker> synthesized.
+
+Synthesizing Unit <FDreg>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\FDreg.v".
+    Found 32-bit register for signal <PCAdd8>.
+    Found 32-bit register for signal <curPC>.
+    Found 1-bit register for signal <BD>.
+    Found 1-bit register for signal <ExcGet>.
+    Found 5-bit register for signal <ExcCode>.
+    Found 32-bit register for signal <Instr>.
+    Summary:
+	inferred 103 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <FDreg> synthesized.
+
+Synthesizing Unit <regfile>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\regfile.v".
+WARNING:Xst:647 - Input <TPC> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 992-bit register for signal <n0053[991:0]>.
+    Found 32-bit 31-to-1 multiplexer for signal <A1[4]_rf[31][31]_wide_mux_1_OUT> created at line 36.
+    Found 32-bit 31-to-1 multiplexer for signal <A2[4]_rf[31][31]_wide_mux_4_OUT> created at line 37.
+    Summary:
+	inferred 992 D-type flip-flop(s).
+	inferred  35 Multiplexer(s).
+Unit <regfile> synthesized.
+
+Synthesizing Unit <mux4_1>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\mux4.v".
+        WIDTH = 32
+    Found 32-bit 4-to-1 multiplexer for signal <Result> created at line 27.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux4_1> synthesized.
+
+Synthesizing Unit <ext>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\ext.v".
+    Found 32-bit 4-to-1 multiplexer for signal <Result> created at line 24.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <ext> synthesized.
+
+Synthesizing Unit <Branch_Control>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\Branch_Control.v".
+    Found 32-bit comparator greater for signal <n0006> created at line 33
+    Found 32-bit comparator greater for signal <GND_17_o_RD1[31]_LessThan_12_o> created at line 34
+    Summary:
+	inferred   2 Comparator(s).
+	inferred   7 Multiplexer(s).
+Unit <Branch_Control> synthesized.
+
+Synthesizing Unit <mux4_2>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\mux4.v".
+        WIDTH = 5
+    Found 5-bit 4-to-1 multiplexer for signal <Result> created at line 27.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <mux4_2> synthesized.
+
+Synthesizing Unit <D_ExcCheker>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\D_ExcCheker.v".
+WARNING:Xst:647 - Input <Instr<15:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <D_ExcCheker> synthesized.
+
+Synthesizing Unit <DEreg>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\DEreg.v".
+    Found 32-bit register for signal <RD2>.
+    Found 32-bit register for signal <Imm>.
+    Found 5-bit register for signal <A3>.
+    Found 5-bit register for signal <Shamt>.
+    Found 1-bit register for signal <ALUBSel>.
+    Found 2-bit register for signal <EResultSel>.
+    Found 1-bit register for signal <MDUEN>.
+    Found 1-bit register for signal <DMWE>.
+    Found 1-bit register for signal <DataWBSel>.
+    Found 1-bit register for signal <RegWE>.
+    Found 8-bit register for signal <ALUCtrl>.
+    Found 3-bit register for signal <SLCtrl>.
+    Found 3-bit register for signal <MDUCtrl>.
+    Found 32-bit register for signal <Instr>.
+    Found 1-bit register for signal <BD>.
+    Found 1-bit register for signal <ExcGet>.
+    Found 5-bit register for signal <ExcCode>.
+    Found 32-bit register for signal <PC>.
+    Found 32-bit register for signal <RD1>.
+    Summary:
+	inferred 198 D-type flip-flop(s).
+	inferred  18 Multiplexer(s).
+Unit <DEreg> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\alu.v".
+    Found 32-bit subtractor for signal <SrcA[31]_SrcB[31]_sub_4_OUT> created at line 34.
+    Found 33-bit subtractor for signal <SrcA[31]_SrcB[31]_sub_68_OUT> created at line 57.
+    Found 32-bit adder for signal <SrcA[31]_SrcB[31]_add_1_OUT> created at line 33.
+    Found 33-bit adder for signal <SrcA[31]_SrcB[31]_add_65_OUT> created at line 56.
+    Found 32-bit shifter logical left for signal <SrcB[31]_Shamt[4]_shift_left_14_OUT> created at line 39
+    Found 32-bit shifter logical right for signal <SrcB[31]_Shamt[4]_shift_right_16_OUT> created at line 40
+    Found 32-bit shifter arithmetic right for signal <SrcB[31]_Shamt[4]_shift_right_18_OUT> created at line 41
+    Found 32-bit shifter logical left for signal <SrcB[31]_SrcA[4]_shift_left_38_OUT> created at line 51
+    Found 32-bit shifter logical right for signal <SrcB[31]_SrcA[4]_shift_right_40_OUT> created at line 52
+    Found 32-bit shifter arithmetic right for signal <SrcB[31]_SrcA[4]_shift_right_42_OUT> created at line 53
+    Found 32-bit 24-to-1 multiplexer for signal <_n0141> created at line 27.
+    Found 32-bit comparator equal for signal <SrcA[31]_SrcB[31]_equal_21_o> created at line 42
+    Found 32-bit comparator greater for signal <SrcB[31]_SrcA[31]_LessThan_23_o> created at line 43
+    Found 32-bit comparator greater for signal <n0023> created at line 44
+    Found 32-bit comparator greater for signal <SrcA[31]_SrcB[31]_LessThan_31_o> created at line 47
+    Found 32-bit comparator greater for signal <n0033> created at line 48
+    Found 1-bit comparator not equal for signal <n0071> created at line 60
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+	inferred  22 Multiplexer(s).
+	inferred   6 Combinational logic shifter(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <multi_divi_unit>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\multiplier.v".
+WARNING:Xst:647 - Input <SrcA> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <SrcB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <MDUCtrl> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Start> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <EN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <multi_divi_unit> synthesized.
+
+Synthesizing Unit <E_ExcChecker>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\E_ExcChecker.v".
+WARNING:Xst:647 - Input <Instr<25:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred   3 Multiplexer(s).
+Unit <E_ExcChecker> synthesized.
+
+Synthesizing Unit <EMreg>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\EMreg.v".
+    Found 32-bit register for signal <RD2>.
+    Found 5-bit register for signal <A3>.
+    Found 1-bit register for signal <DMWE>.
+    Found 1-bit register for signal <DataWBSel>.
+    Found 1-bit register for signal <RegWE>.
+    Found 3-bit register for signal <SLCtrl>.
+    Found 32-bit register for signal <Instr>.
+    Found 1-bit register for signal <BD>.
+    Found 1-bit register for signal <ExcGet>.
+    Found 5-bit register for signal <ExcCode>.
+    Found 32-bit register for signal <PC>.
+    Found 32-bit register for signal <Result>.
+    Summary:
+	inferred 146 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <EMreg> synthesized.
+
+Synthesizing Unit <savecalc>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\savecalc.v".
+    Found 32-bit shifter logical left for signal <Din[31]_bytesel[1]_shift_left_3_OUT> created at line 34
+    Found 32-bit shifter logical right for signal <Din[31]_bytesel[1]_shift_right_8_OUT> created at line 36
+    Found 32-bit shifter logical left for signal <Din[31]_bytesel[1]_shift_left_10_OUT> created at line 37
+    Found 4-bit shifter logical left for signal <GND_25_o_bytesel[1]_shift_left_18_OUT> created at line 41
+    Found 4-bit shifter logical left for signal <GND_25_o_bytesel[1]_shift_left_20_OUT> created at line 42
+    Found 4-bit shifter logical right for signal <PWR_28_o_bytesel[1]_shift_right_23_OUT> created at line 43
+    Found 4-bit shifter logical left for signal <PWR_28_o_bytesel[1]_shift_left_25_OUT> created at line 44
+    Found 32-bit 7-to-1 multiplexer for signal <Dout> created at line 26.
+    Found 4-bit 7-to-1 multiplexer for signal <ByteEN> created at line 28.
+    Summary:
+	inferred   2 Multiplexer(s).
+	inferred   7 Combinational logic shifter(s).
+Unit <savecalc> synthesized.
+
+Synthesizing Unit <M_ExcChecker>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\M_ExcChecker.v".
+WARNING:Xst:647 - Input <Instr<25:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit comparator lessequal for signal <n0016> created at line 113
+    Found 32-bit comparator lessequal for signal <n0018> created at line 115
+    Found 32-bit comparator lessequal for signal <n0020> created at line 115
+    Found 32-bit comparator lessequal for signal <n0023> created at line 116
+    Found 32-bit comparator lessequal for signal <n0025> created at line 116
+    Found 32-bit comparator lessequal for signal <n0029> created at line 117
+    Found 32-bit comparator lessequal for signal <n0031> created at line 117
+    Found 32-bit comparator lessequal for signal <n0035> created at line 118
+    Found 32-bit comparator lessequal for signal <n0037> created at line 118
+    Summary:
+	inferred   9 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <M_ExcChecker> synthesized.
+
+Synthesizing Unit <CP0Controller>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\CP0Controller.v".
+WARNING:Xst:647 - Input <Instr<20:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <CP0Controller> synthesized.
+
+Synthesizing Unit <coprocessor0>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\coprocessor0.v".
+    Found 1-bit register for signal <EXL>.
+    Found 1-bit register for signal <IE>.
+    Found 1-bit register for signal <BD>.
+    Found 6-bit register for signal <IP>.
+    Found 5-bit register for signal <ExcCode>.
+    Found 30-bit register for signal <EPC>.
+    Found 6-bit register for signal <IM>.
+    Found 30-bit subtractor for signal <PCIn[31]_GND_28_o_sub_16_OUT> created at line 94.
+    Found 32-bit 4-to-1 multiplexer for signal <A[3]_Value[15][31]_wide_mux_7_OUT> created at line 66.
+    Found 5-bit comparator lessequal for signal <n0005> created at line 66
+    Found 5-bit comparator lessequal for signal <n0007> created at line 66
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  50 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   5 Multiplexer(s).
+Unit <coprocessor0> synthesized.
+
+Synthesizing Unit <MWreg>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\MWreg.v".
+    Found 32-bit register for signal <RD2>.
+    Found 5-bit register for signal <A3>.
+    Found 32-bit register for signal <DMDataR>.
+    Found 1-bit register for signal <DataWBSel>.
+    Found 1-bit register for signal <RegWE>.
+    Found 3-bit register for signal <SLCtrl>.
+    Found 32-bit register for signal <PC>.
+    Found 32-bit register for signal <Result>.
+    Summary:
+	inferred 138 D-type flip-flop(s).
+Unit <MWreg> synthesized.
+
+Synthesizing Unit <loadcalc>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\datapath\component\loadcalc.v".
+    Found 32-bit shifter logical right for signal <memD[31]_bytesel[1]_shift_right_6_OUT> created at line 35
+    Found 32-bit shifter logical right for signal <memD[31]_bytesel[1]_shift_right_8_OUT> created at line 36
+    Found 32-bit shifter logical left for signal <memD[31]_bytesel[1]_shift_left_19_OUT> created at line 43
+    Found 32-bit shifter logical right for signal <GND_30_o_bytesel[1]_shift_right_20_OUT> created at line 43
+    Found 32-bit shifter logical left for signal <PWR_34_o_bytesel[1]_shift_left_26_OUT> created at line 44
+    Found 32-bit 8-to-1 multiplexer for signal <Dout> created at line 27.
+    Summary:
+	inferred   8 Multiplexer(s).
+	inferred   5 Combinational logic shifter(s).
+Unit <loadcalc> synthesized.
+
+Synthesizing Unit <controller>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\controller.v".
+    Summary:
+	no macro.
+Unit <controller> synthesized.
+
+Synthesizing Unit <main_controller>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\main_controller.v".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <main_controller> synthesized.
+
+Synthesizing Unit <ATDecoder>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\ATDecoder.v".
+WARNING:Xst:647 - Input <Instr<10:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 21-bit 3-to-1 multiplexer for signal <_n0522> created at line 184.
+    Summary:
+	inferred   4 Multiplexer(s).
+Unit <ATDecoder> synthesized.
+
+Synthesizing Unit <CTreg>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\CTreg.v".
+    Found 5-bit register for signal <DEA2>.
+    Found 5-bit register for signal <DEA3>.
+    Found 2-bit register for signal <DETnew>.
+    Found 5-bit register for signal <EMA1>.
+    Found 5-bit register for signal <EMA2>.
+    Found 5-bit register for signal <EMA3>.
+    Found 2-bit register for signal <EMTnew>.
+    Found 5-bit register for signal <MWA3>.
+    Found 2-bit register for signal <MWTnew>.
+    Found 5-bit register for signal <DEA1>.
+    Found 2-bit subtractor for signal <Tnew[1]_GND_34_o_sub_9_OUT> created at line 97.
+    Found 2-bit subtractor for signal <DETnew[1]_GND_34_o_sub_12_OUT> created at line 101.
+    Found 2-bit subtractor for signal <EMTnew[1]_GND_34_o_sub_15_OUT> created at line 105.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  41 D-type flip-flop(s).
+	inferred   7 Multiplexer(s).
+Unit <CTreg> synthesized.
+
+Synthesizing Unit <forward_controller>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\forward_controller.v".
+    Found 5-bit comparator equal for signal <IDA1[4]_DEA3[4]_equal_2_o> created at line 48
+    Found 5-bit comparator equal for signal <IDA1[4]_EMA3[4]_equal_4_o> created at line 49
+    Found 5-bit comparator equal for signal <IDA1[4]_MWA3[4]_equal_6_o> created at line 50
+    Found 5-bit comparator equal for signal <IDA2[4]_DEA3[4]_equal_13_o> created at line 53
+    Found 5-bit comparator equal for signal <IDA2[4]_EMA3[4]_equal_15_o> created at line 54
+    Found 5-bit comparator equal for signal <IDA2[4]_MWA3[4]_equal_17_o> created at line 55
+    Found 5-bit comparator equal for signal <DEA1[4]_EMA3[4]_equal_24_o> created at line 58
+    Found 5-bit comparator equal for signal <DEA1[4]_MWA3[4]_equal_26_o> created at line 59
+    Found 5-bit comparator equal for signal <DEA2[4]_EMA3[4]_equal_32_o> created at line 62
+    Found 5-bit comparator equal for signal <DEA2[4]_MWA3[4]_equal_34_o> created at line 63
+    Found 5-bit comparator equal for signal <EMA1[4]_MWA3[4]_equal_40_o> created at line 66
+    Found 5-bit comparator equal for signal <EMA2[4]_MWA3[4]_equal_45_o> created at line 69
+    Summary:
+	inferred  12 Comparator(s).
+	inferred  12 Multiplexer(s).
+Unit <forward_controller> synthesized.
+
+Synthesizing Unit <stall_controller>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\cpu\controller\component\stall_controller.v".
+WARNING:Xst:647 - Input <DE_MDUEN> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 5-bit comparator equal for signal <IDA1[4]_DEA3[4]_equal_1_o> created at line 45
+    Found 5-bit comparator equal for signal <IDA1[4]_EMA3[4]_equal_2_o> created at line 46
+    Found 5-bit comparator equal for signal <IDA1[4]_MWA3[4]_equal_3_o> created at line 47
+    Found 5-bit comparator equal for signal <IDA2[4]_DEA3[4]_equal_7_o> created at line 49
+    Found 5-bit comparator equal for signal <IDA2[4]_EMA3[4]_equal_8_o> created at line 50
+    Found 5-bit comparator equal for signal <IDA2[4]_MWA3[4]_equal_9_o> created at line 51
+    Found 2-bit comparator greater for signal <Tuse1[1]_A1Tnew[1]_LessThan_14_o> created at line 54
+    Found 2-bit comparator greater for signal <Tuse2[1]_A2Tnew[1]_LessThan_16_o> created at line 54
+    Summary:
+	inferred   8 Comparator(s).
+	inferred   6 Multiplexer(s).
+Unit <stall_controller> synthesized.
+
+Synthesizing Unit <NorthBridge>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IO\NorthBridge.v".
+    Found 32-bit comparator lessequal for signal <n0002> created at line 47
+    Summary:
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <NorthBridge> synthesized.
+
+Synthesizing Unit <datamemory>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IO\datamemory.v".
+WARNING:Xst:647 - Input <A<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <A<31:15>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	no macro.
+Unit <datamemory> synthesized.
+
+Synthesizing Unit <SouthBridge>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IO\SouthBridge.v".
+    Found 32-bit comparator lessequal for signal <n0003> created at line 84
+    Found 32-bit comparator lessequal for signal <n0005> created at line 84
+    Found 32-bit comparator lessequal for signal <n0008> created at line 85
+    Found 32-bit comparator lessequal for signal <n0010> created at line 85
+    Found 32-bit comparator lessequal for signal <n0013> created at line 86
+    Found 32-bit comparator lessequal for signal <n0015> created at line 86
+    Found 32-bit comparator lessequal for signal <n0018> created at line 87
+    Found 32-bit comparator lessequal for signal <n0020> created at line 87
+    Found 32-bit comparator lessequal for signal <n0023> created at line 88
+    Found 32-bit comparator lessequal for signal <n0025> created at line 88
+    Found 32-bit comparator lessequal for signal <n0028> created at line 89
+    Found 32-bit comparator lessequal for signal <n0030> created at line 89
+    Summary:
+	inferred  12 Comparator(s).
+	inferred  12 Multiplexer(s).
+Unit <SouthBridge> synthesized.
+
+Synthesizing Unit <timer>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IO\Device\timer.v".
+WARNING:Xst:647 - Input <Addr<7:4>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <CTRL<2>>.
+    Found 1-bit register for signal <CTRL<1>>.
+    Found 1-bit register for signal <CTRL<0>>.
+    Found 32-bit register for signal <PRESET>.
+    Found 32-bit register for signal <COUNT>.
+    Found 1-bit register for signal <IRQ_reg>.
+    Found 2-bit register for signal <state>.
+    Found 1-bit register for signal <CTRL<3>>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit subtractor for signal <COUNT[31]_GND_41_o_sub_19_OUT> created at line 110.
+    Found 32-bit 4-to-1 multiplexer for signal <Dout> created at line 51.
+    Found 32-bit comparator greater for signal <n0015> created at line 101
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  69 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   3 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <timer> synthesized.
+
+Synthesizing Unit <instrmemory>.
+    Related source file is "C:\Users\lyt\Documents\project\co\p8\mips\IO\instrmemory.v".
+    Found 32-bit subtractor for signal <Addr> created at line 27.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <instrmemory> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 11
+ 2-bit subtractor                                      : 3
+ 30-bit subtractor                                     : 1
+ 32-bit adder                                          : 3
+ 32-bit addsub                                         : 1
+ 32-bit subtractor                                     : 2
+ 33-bit addsub                                         : 1
+# Registers                                            : 71
+ 1-bit register                                        : 24
+ 2-bit register                                        : 4
+ 3-bit register                                        : 4
+ 30-bit register                                       : 1
+ 32-bit register                                       : 19
+ 5-bit register                                        : 15
+ 6-bit register                                        : 2
+ 8-bit register                                        : 1
+ 992-bit register                                      : 1
+# Comparators                                          : 55
+ 1-bit comparator not equal                            : 1
+ 2-bit comparator greater                              : 2
+ 32-bit comparator equal                               : 1
+ 32-bit comparator greater                             : 7
+ 32-bit comparator lessequal                           : 24
+ 5-bit comparator equal                                : 18
+ 5-bit comparator lessequal                            : 2
+# Multiplexers                                         : 180
+ 1-bit 2-to-1 multiplexer                              : 17
+ 2-bit 2-to-1 multiplexer                              : 23
+ 21-bit 2-to-1 multiplexer                             : 2
+ 21-bit 3-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 4
+ 30-bit 2-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 96
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 9
+ 32-bit 7-to-1 multiplexer                             : 1
+ 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 7-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 19
+ 5-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 18
+ 32-bit shifter arithmetic right                       : 2
+ 32-bit shifter logical left                           : 6
+ 32-bit shifter logical right                          : 6
+ 4-bit shifter logical left                            : 3
+ 4-bit shifter logical right                           : 1
+# FSMs                                                 : 1
+# Xors                                                 : 2
+ 32-bit xor2                                           : 2
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <IPcore/DM/DM_BlockRAM.ngc>.
+Reading core <IPcore/IM/IM_BlockRAM.ngc>.
+Loading core <DM_BlockRAM> for timing and area information for instance <DM_BlockRAM>.
+Loading core <IM_BlockRAM> for timing and area information for instance <IM_BlockRAM>.
+WARNING:Xst:1293 - FF/Latch <IP_3> has a constant value of 0 in block <CP0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <IP_4> has a constant value of 0 in block <CP0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <IP_5> has a constant value of 0 in block <CP0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <IP_6> has a constant value of 0 in block <CP0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <IP_7> has a constant value of 0 in block <CP0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ExcCode_0> has a constant value of 0 in block <FDreg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ExcCode_1> has a constant value of 0 in block <FDreg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ExcCode_3> has a constant value of 0 in block <FDreg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ExcCode_4> has a constant value of 0 in block <FDreg>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <Instr_6> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_7> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_8> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_9> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_10> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_16> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_17> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_18> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_19> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_20> of sequential type is unconnected in block <DEreg>.
+WARNING:Xst:2677 - Node <Instr_6> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_7> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_8> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_9> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_10> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_16> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_17> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_18> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_19> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <Instr_20> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <PC_0> of sequential type is unconnected in block <EMreg>.
+WARNING:Xst:2677 - Node <PC_1> of sequential type is unconnected in block <EMreg>.
+
+Synthesizing (advanced) Unit <timer>.
+The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
+Unit <timer> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 10
+ 15-bit subtractor                                     : 1
+ 2-bit subtractor                                      : 3
+ 30-bit subtractor                                     : 1
+ 32-bit adder                                          : 3
+ 32-bit addsub                                         : 1
+ 33-bit addsub                                         : 1
+# Counters                                             : 1
+ 32-bit down counter                                   : 1
+# Registers                                            : 1737
+ Flip-Flops                                            : 1737
+# Comparators                                          : 55
+ 1-bit comparator not equal                            : 1
+ 2-bit comparator greater                              : 2
+ 32-bit comparator equal                               : 1
+ 32-bit comparator greater                             : 7
+ 32-bit comparator lessequal                           : 24
+ 5-bit comparator equal                                : 18
+ 5-bit comparator lessequal                            : 2
+# Multiplexers                                         : 179
+ 1-bit 2-to-1 multiplexer                              : 17
+ 2-bit 2-to-1 multiplexer                              : 23
+ 21-bit 2-to-1 multiplexer                             : 2
+ 21-bit 3-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 4
+ 30-bit 2-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 95
+ 32-bit 31-to-1 multiplexer                            : 2
+ 32-bit 4-to-1 multiplexer                             : 9
+ 32-bit 7-to-1 multiplexer                             : 1
+ 32-bit 8-to-1 multiplexer                             : 1
+ 4-bit 7-to-1 multiplexer                              : 1
+ 5-bit 2-to-1 multiplexer                              : 19
+ 5-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Logic shifters                                       : 18
+ 32-bit shifter arithmetic right                       : 2
+ 32-bit shifter logical left                           : 6
+ 32-bit shifter logical right                          : 6
+ 4-bit shifter logical left                            : 3
+ 4-bit shifter logical right                           : 1
+# FSMs                                                 : 1
+# Xors                                                 : 2
+ 32-bit xor2                                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <ExcCode_0> in Unit <FDreg> is equivalent to the following 3 FFs/Latches, which will be removed : <ExcCode_1> <ExcCode_3> <ExcCode_4> 
+INFO:Xst:2261 - The FF/Latch <ExcCode_2> in Unit <FDreg> is equivalent to the following FF/Latch, which will be removed : <ExcGet> 
+WARNING:Xst:1293 - FF/Latch <ExcCode_0> has a constant value of 0 in block <FDreg>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Timer/FSM_0> on signal <state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+INFO:Xst:2261 - The FF/Latch <Shamt_0> in Unit <DEreg> is equivalent to the following FF/Latch, which will be removed : <Instr_6> 
+INFO:Xst:2261 - The FF/Latch <Shamt_1> in Unit <DEreg> is equivalent to the following FF/Latch, which will be removed : <Instr_7> 
+INFO:Xst:2261 - The FF/Latch <Shamt_2> in Unit <DEreg> is equivalent to the following FF/Latch, which will be removed : <Instr_8> 
+INFO:Xst:2261 - The FF/Latch <Shamt_3> in Unit <DEreg> is equivalent to the following FF/Latch, which will be removed : <Instr_9> 
+INFO:Xst:2261 - The FF/Latch <Shamt_4> in Unit <DEreg> is equivalent to the following FF/Latch, which will be removed : <Instr_10> 
+
+Optimizing unit <PCmem> ...
+
+Optimizing unit <mips> ...
+
+Optimizing unit <datapath> ...
+
+Optimizing unit <DEreg> ...
+
+Optimizing unit <MWreg> ...
+
+Optimizing unit <coprocessor0> ...
+
+Optimizing unit <FDreg> ...
+
+Optimizing unit <regfile> ...
+
+Optimizing unit <EMreg> ...
+
+Optimizing unit <Branch_Control> ...
+
+Optimizing unit <alu> ...
+
+Optimizing unit <savecalc> ...
+
+Optimizing unit <loadcalc> ...
+
+Optimizing unit <M_ExcChecker> ...
+
+Optimizing unit <CTreg> ...
+
+Optimizing unit <forward_controller> ...
+
+Optimizing unit <stall_controller> ...
+
+Optimizing unit <timer> ...
+
+Optimizing unit <SouthBridge> ...
+WARNING:Xst:1293 - FF/Latch <CPU/DP/DEreg/ExcCode_4> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/DEreg/ExcCode_0> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/DEreg/ALUCtrl_7> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/DEreg/ALUCtrl_6> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/DEreg/ALUCtrl_5> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/IP_7> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/IP_6> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/IP_5> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/IP_4> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/IP_3> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/CP0/ExcCode_4> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/DP/EMreg/ExcCode_4> has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/Instr_20> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/Instr_19> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/Instr_18> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/Instr_17> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/Instr_16> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/MDUCtrl_2> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/MDUCtrl_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/MDUCtrl_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/MDUEN> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/PC_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/DEreg/PC_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_31> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_30> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_29> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_28> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_27> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_26> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_25> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_24> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_23> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_22> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_21> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_20> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_19> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_18> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_17> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_16> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_15> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_14> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_13> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_12> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_11> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_10> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_9> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_8> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_7> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_6> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_5> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_4> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_3> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_2> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/MWreg/PC_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/FDreg/curPC_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/FDreg/curPC_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/PC_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/PC_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_20> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_19> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_18> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_17> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_16> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_10> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_9> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_8> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_7> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/DP/EMreg/Instr_6> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/CT/CTR/EMA1_4> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/CT/CTR/EMA1_3> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/CT/CTR/EMA1_2> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/CT/CTR/EMA1_1> of sequential type is unconnected in block <mips>.
+WARNING:Xst:2677 - Node <CPU/CT/CTR/EMA1_0> of sequential type is unconnected in block <mips>.
+WARNING:Xst:1710 - FF/Latch <CPU/CT/CTR/MWTnew_1> (without init value) has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <CPU/CT/CTR/MWTnew_0> (without init value) has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <CPU/CT/CTR/EMTnew_1> (without init value) has a constant value of 0 in block <mips>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <CPU/DP/DEreg/ExcCode_3> in Unit <mips> is equivalent to the following FF/Latch, which will be removed : <CPU/DP/DEreg/ExcCode_1> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mips, actual ratio is 8.
+FlipFlop CPU/DP/EMreg/Result_1 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_10 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_11 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_12 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_13 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_15 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_16 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_17 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_18 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_2 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_3 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_4 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_5 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_6 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/Result_8 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/SLCtrl_0 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/SLCtrl_1 has been replicated 1 time(s)
+FlipFlop CPU/DP/EMreg/SLCtrl_2 has been replicated 1 time(s)
+FlipFlop CPU/DP/FDreg/Instr_17 has been replicated 1 time(s)
+FlipFlop CPU/DP/MWreg/DataWBSel has been replicated 1 time(s)
+FlipFlop CPU/DP/MWreg/Result_0 has been replicated 6 time(s)
+FlipFlop CPU/DP/MWreg/Result_1 has been replicated 8 time(s)
+FlipFlop CPU/DP/MWreg/SLCtrl_0 has been replicated 3 time(s)
+FlipFlop CPU/DP/MWreg/SLCtrl_1 has been replicated 3 time(s)
+FlipFlop CPU/DP/MWreg/SLCtrl_2 has been replicated 5 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1728
+ Flip-Flops                                            : 1728
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : mips.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 4974
+#      GND                         : 3
+#      INV                         : 34
+#      LUT1                        : 58
+#      LUT2                        : 78
+#      LUT3                        : 604
+#      LUT4                        : 486
+#      LUT5                        : 769
+#      LUT6                        : 2309
+#      MUXCY                       : 368
+#      MUXF7                       : 103
+#      VCC                         : 3
+#      XORCY                       : 159
+# FlipFlops/Latches                : 1732
+#      FDE                         : 4
+#      FDR                         : 496
+#      FDRE                        : 1230
+#      FDSE                        : 2
+# RAMS                             : 31
+#      RAMB16BWER                  : 30
+#      RAMB8BWER                   : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 2
+#      IBUF                        : 1
+#      IBUFG                       : 1
+# DCMs                             : 1
+#      DCM_SP                      : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx100fgg676-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            1732  out of  126576     1%  
+ Number of Slice LUTs:                 4338  out of  63288     6%  
+    Number used as Logic:              4338  out of  63288     6%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   5642
+   Number with an unused Flip Flop:    3910  out of   5642    69%  
+   Number with an unused LUT:          1304  out of   5642    23%  
+   Number of fully used LUT-FF pairs:   428  out of   5642     7%  
+   Number of unique control sets:        16
+
+IO Utilization: 
+ Number of IOs:                          34
+ Number of bonded IOBs:                   2  out of    480     0%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               31  out of    268    11%  
+    Number using Block RAM only:         31
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                    | Load  |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+clk_in                             | DCM_SP:CLK2X                                                                                                                             | 1728  |
+clk_in                             | DCM_SP:CLKFX                                                                                                                             | 35    |
+DM/DM_BlockRAM/N1                  | NONE(DM/DM_BlockRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[15].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram)| 16    |
+IM/IM_BlockRAM/N1                  | NONE(IM/IM_BlockRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram) | 15    |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 33.792ns (Maximum Frequency: 29.593MHz)
+   Minimum input arrival time before clock: 5.504ns
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_in'
+  Clock period: 33.792ns (frequency: 29.593MHz)
+  Total number of paths / destination ports: 40775008 / 4035
+-------------------------------------------------------------------------
+Delay:               8.448ns (Levels of Logic = 7)
+  Source:            CPU/CT/CTR/MWA3_4 (FF)
+  Destination:       DM/DM_BlockRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram (RAM)
+  Source Clock:      clk_in rising 2.0X
+  Destination Clock: clk_in rising 4.0X
+
+  Data Path: CPU/CT/CTR/MWA3_4 to DM/DM_BlockRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              9   0.525   1.084  CPU/CT/CTR/MWA3_4 (CPU/CT/CTR/MWA3_4)
+     LUT4:I2->O            5   0.250   1.117  CPU/CT/FWCT/Mmux_M2FWSel17_SW1 (N840)
+     LUT5:I1->O           10   0.254   1.008  CPU/CT/FWCT/Mmux_M2FWSel17_1 (CPU/CT/FWCT/Mmux_M2FWSel17)
+     LUT6:I5->O           10   0.254   1.463  CPU/DP/FW_mux_M_RD2/Mmux_Result301 (CPU/DP/M_RD2<7>)
+     LUT6:I0->O            1   0.254   0.000  CPU/DP/SC/Mmux_Dout301_SW4_F (N1160)
+     MUXF7:I0->O           1   0.163   0.682  CPU/DP/SC/Mmux_Dout301_SW4 (N779)
+     LUT6:I5->O            5   0.254   0.840  CPU/DP/SC/Mmux_Dout302 (DataW<7>)
+     begin scope: 'DM/DM_BlockRAM:dina<7>'
+     RAMB16BWER:DIA7           0.300          U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SP.SIMPLE_PRIM18.ram
+    ----------------------------------------
+    Total                      8.448ns (2.254ns logic, 6.194ns route)
+                                       (26.7% logic, 73.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_in'
+  Total number of paths / destination ports: 1728 / 1728
+-------------------------------------------------------------------------
+Offset:              5.504ns (Levels of Logic = 2)
+  Source:            sys_rstn (PAD)
+  Destination:       CPU/DP/DEreg/PC_31 (FF)
+  Destination Clock: clk_in rising 2.0X
+
+  Data Path: sys_rstn to CPU/DP/DEreg/PC_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.328   0.803  sys_rstn_IBUF (sys_rstn_IBUF)
+     INV:I->O           1224   0.255   2.659  reset1_INV_0 (reset)
+     FDR:R                     0.459          CPU/DP/DEreg/PC_2
+    ----------------------------------------
+    Total                      5.504ns (2.042ns logic, 3.462ns route)
+                                       (37.1% logic, 62.9% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk_in
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_in         |   15.795|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 70.00 secs
+Total CPU time to Xst completion: 69.48 secs
+ 
+--> 
+
+Total memory usage is 4595620 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  153 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
+

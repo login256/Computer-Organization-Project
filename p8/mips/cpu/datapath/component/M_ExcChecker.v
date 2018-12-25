@@ -1,4 +1,4 @@
-`include"..\..\define.v"
+`include"..\..\..\define.v"
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -115,7 +115,9 @@ module M_ExcChecker(
 	wire InDevRage=	(`Dev0min<=Addr&&Addr<=`Dev0max)||
 					(`Dev1min<=Addr&&Addr<=`Dev1max)||
 					(`Dev2min<=Addr&&Addr<=`Dev2max)||
-					(`Dev3min<=Addr&&Addr<=`Dev3max);
+					(`Dev3min<=Addr&&Addr<=`Dev3max)||
+					(`Dev4min<=Addr&&Addr<=`Dev4max)||
+					(`Dev5min<=Addr&&Addr<=`Dev5max);
 	
 	wire NoWriteAddr= Addr==32'h7f08;
 	

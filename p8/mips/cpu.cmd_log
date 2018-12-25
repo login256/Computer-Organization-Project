@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p8/mips/cpu.tfi -lib work C:/Users/lyt/Documents/project/co/p8/mips/cpu//cpu.v -module cpu -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
