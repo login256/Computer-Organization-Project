@@ -9,9 +9,9 @@
 // Notes      :     1. tx_unit and divisior must use the same clock
 //////////////////////////////////////////////////////////////////////////////////
 
-`include    ".\\src\\head_uart.v"
+`include    ".\head_uart.v"
 
-module  MiniUART( ADD_I, DAT_I, DAT_O, STB_I, WE_I, CLK_I, RST_I, ACK_O, RxD, TxD ) ;
+module  MiniUART( ADD_I, DAT_I, DAT_O, STB_I, WE_I, CLK_I, RST_I, ACK_O, RxD, TxD, INTREQ ) ;
     // WISHBONE slave interface
     input                       CLK_I ;         // clock
     input   [31:0]              DAT_I ;         // input data
@@ -24,6 +24,8 @@ module  MiniUART( ADD_I, DAT_I, DAT_O, STB_I, WE_I, CLK_I, RST_I, ACK_O, RxD, Tx
     // Serial interface
     input                       RxD ;
     output                      TxD ;
+	//INT
+	output                      INTREQ;
 
     // UART registers/wires
     reg     [7:0]               tx_data ;       // send data buffer
@@ -78,6 +80,9 @@ module  MiniUART( ADD_I, DAT_I, DAT_O, STB_I, WE_I, CLK_I, RST_I, ACK_O, RxD, Tx
     //
     assign  lsr = {ts, 4'b0, rs} ;
     
+	//
+	assign INTREQ = rs;
+	
     //
     always  @( posedge CLK_I or posedge RST_I )
         if ( RST_I )

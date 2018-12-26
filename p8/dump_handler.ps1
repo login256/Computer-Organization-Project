@@ -1,1 +1,1 @@
-java -jar '.\Mars2018 .jar' .\handler.asm a db mc CompactDataAtZero dump 0x00004180-0x00004ffc HexText a.txt
+java -jar '.\Mars2018 .jar' .\handler.asm a db mc CompactDataAtZero dump 0x00004180-0x00004ffc HexText handler.txt

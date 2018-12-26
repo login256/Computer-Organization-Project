@@ -5,7 +5,7 @@ int main()
 	int v;
 	scanf("%d", &v);
 	FILE *fin = fopen("code.txt", "r");
-	FILE *fin_handler = fopen("code_handler.txt", "r");
+	FILE *fin_handler = fopen("handler.txt", "r");
 	FILE *fout = fopen("code.coe", "w");
 	fprintf(fout, "memory_initialization_radix=16;\nmemory_initialization_vector=\n");
 	bool begin = 0;
@@ -13,7 +13,7 @@ int main()
 	int line = 0x3000;
 	while (fscanf(fin, "%x", &cur) != EOF)
 	{
-		line++;
+		line+=4;
 		if (begin)
 		{
 			fprintf(fout, ",\n");
@@ -26,7 +26,7 @@ int main()
 	}
 	if (v)
 	{
-		for (int i = line; i < 0x4180; i++)
+		for (int i = line; i < 0x4180; i+=4)
 		{
 			fprintf(fout, ",\n");
 			fprintf(fout, "%08x", 0);

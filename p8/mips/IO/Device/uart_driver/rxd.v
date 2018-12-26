@@ -6,7 +6,7 @@ Description : The receiving unit reads data serially and output it in paraller(8
               clock frequency of receiving unit is 8 times faster than the baud of the sender to
               sample the serial input data.
 --------------------------------------------------------------------------------------------------*/
-`include    ".\\src\\head_uart.v"
+`include    ".\head_uart.v"
 
 module  rx_unit ( rxd, en_rx, d_out, rs, over_read, clk, rst ) ;
     input                           rxd ;           // RxD

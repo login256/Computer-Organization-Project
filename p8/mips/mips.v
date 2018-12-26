@@ -23,6 +23,10 @@ module mips(
 	input sys_rstn,
 //	input reset,
 	
+	//uart
+	input uart_rxd,
+	output uart_txd,
+	
 	//dip_switch
 	input [7:0] dip_switch0,
 	input [7:0] dip_switch1,
@@ -192,6 +196,19 @@ module mips(
 		);
 	
 	//Dev1
+	MiniUART MiniUART_driver (
+		.ADD_I(Dev1Addr[4:2]), 
+		.DAT_I(Dev1WD),
+		.DAT_O(Dev1RD), 
+		.STB_I(Dev1WE), 
+		.WE_I(Dev1WE), 
+		.CLK_I(clk), 
+		.RST_I(reset), 
+//		.ACK_O(ACK_O), 
+		.RxD(uart_rxd), 
+		.TxD(uart_txd),
+		.INTREQ(Dev1IRQ)
+		);
 	//Dev2
 	dip_switch_driver Switch_driver (
 		.clk(clk), 

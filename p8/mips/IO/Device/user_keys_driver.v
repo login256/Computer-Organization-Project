@@ -30,7 +30,7 @@ module user_keys_driver(
 	input [7:0] user_key
     );
 	
-	reg [7:0] value;
+	reg [7:0] value=0;
 	
 	assign Dout={24'b0,value};
 	

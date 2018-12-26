@@ -21,9 +21,8 @@ _main_handler:
 	bne $t0, $0, handler_if_1_end	#Int
 	nop
 		
-		mfc0 $s1, $13
-		
-		andi $t0, $s1, 0x400
+		mfc0 $t1, $13
+		andi $t0, $t1, 0x400
 		beq $t0, $0, _handler_Int_if_1_end	#if s1[10]!=0 Dev0INT
 		nop
 			li $t0, 0x7f00
@@ -37,10 +36,29 @@ _main_handler:
 			sw $t1, 0($t0)
 
 		_handler_Int_if_1_end:
-		
-		andi $t0, $s1, 0x800
+
+		mfc0 $t1, $13
+		andi $t0, $t1, 0x800
 		beq $t0, $0, _handler_Int_if_2_end	#if s1[11]!=0 Dev1INT
 		nop
+			li $s0, 0x7f10
+			lw $s1, 0($s0)
+
+			li $t0, 0x7f38
+			sw $s1, 0($t0)
+
+			_handler_Int_while_1_begin:
+				lw $t0, 4($s0)
+				andi $t0, $t0, 0x20
+				beq $t0, $0, _handler_Int_2_if_1_end
+				nop
+					sw $s1, 0($s0)
+					j _handler_Int_while_1_end
+				_handler_Int_2_if_1_end:
+			j _handler_Int_while_1_begin
+			nop
+			_handler_Int_while_1_end:
+
 		_handler_Int_if_2_end:
 		
 		li $t1, 0x1000

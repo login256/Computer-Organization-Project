@@ -28,7 +28,7 @@ module SouthBridge(
 	output [5:0] HWInt,
 	
 	//Dev0
-	output [31:0] Dev0Addr,
+	output [7:0] Dev0Addr,
 	output [31:0] Dev0WD,
 	output Dev0WE,
 	input [31:0] Dev0RD,

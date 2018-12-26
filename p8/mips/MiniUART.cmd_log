@@ -1,0 +1,1 @@
+vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p8/mips/MiniUART.tfi -lib work C:/Users/lyt/Documents/project/co/p8/mips/IO/Device/uart_driver//uart.v -module MiniUART -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

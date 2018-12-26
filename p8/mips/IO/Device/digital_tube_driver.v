@@ -53,7 +53,7 @@ module digital_tube_driver(
 									~8'b01001111,	//E
 									~8'b01000111	//F
 									};
-	reg [31:0] value [0:1];
+	reg [31:0] value [0:1] = {0,0};
 	
 	assign Dout=	Addr==`Dev4begin+0 ? value[0] :
 					Addr==`Dev4begin+4 ? value[1] :

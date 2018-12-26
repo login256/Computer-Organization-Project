@@ -27,7 +27,7 @@ module led_driver(
 	output [31:0] led_light_pin
     );
 	
-	reg [31:0] value=0;
+	reg [31:0] value=~0;
 	
 	assign led_light_pin=value;
 	assign Dout=~value;
@@ -36,7 +36,7 @@ module led_driver(
 	begin
 		if(reset)
 		begin
-			value<=0;
+			value<=~0;
 		end
 		else if(WE)
 		begin

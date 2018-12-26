@@ -170,3 +170,9 @@ NET "digital_tube_sel0[0]"  LOC = E16  | IOSTANDARD = LVCMOS33;
 NET "digital_tube_sel0[1]"  LOC = A17  | IOSTANDARD = LVCMOS33;
 NET "digital_tube_sel0[2]"  LOC = C15  | IOSTANDARD = LVCMOS33;
 NET "digital_tube_sel0[3]"  LOC = G14  | IOSTANDARD = LVCMOS33;
+
+#**************************************************************
+# uart interface
+#**************************************************************
+NET "uart_rxd" LOC = AF16 | IOSTANDARD = LVCMOS33;
+NET "uart_txd" LOC = AF15 | IOSTANDARD = LVCMOS33;

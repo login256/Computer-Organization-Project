@@ -11,7 +11,7 @@ Description : The transmit unit includes 2 parts which are controller and shift 
               data, 1 start bit(0), 1 stop bit(1) and a single 1(continuation bit, to identify the 
               line is idle) are loaded into the shift register.
 --------------------------------------------------------------------------------------------------*/
-`include    ".\\src\\head_uart.v"
+`include    ".\head_uart.v"
 
 module  tx_unit( d_in, load, en_tx, txd, ts, clk, rst ) ;
     input   [7:0]                   d_in ;
