@@ -30,7 +30,7 @@ module led_driver(
 	reg [31:0] value=0;
 	
 	assign led_light_pin=value;
-	assign Dout=value;
+	assign Dout=~value;
 	
 	always @(posedge clk)
 	begin
@@ -40,7 +40,7 @@ module led_driver(
 		end
 		else if(WE)
 		begin
-			value<=Din;
+			value<=~Din;
 		end
 	end
 	

@@ -196,6 +196,32 @@
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="175"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="175"/>
     </file>
+    <file xil_pn:name="IO/Device/uart_driver/head_uart.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="163"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="163"/>
+    </file>
+    <file xil_pn:name="IO/Device/uart_driver/rxd.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="164"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="164"/>
+    </file>
+    <file xil_pn:name="IO/Device/uart_driver/testbench.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="165"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="165"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="165"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="165"/>
+    </file>
+    <file xil_pn:name="IO/Device/uart_driver/txd.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="166"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="166"/>
+    </file>
+    <file xil_pn:name="IO/Device/uart_driver/uart.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="167"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="167"/>
+    </file>
+    <file xil_pn:name="IO/Device/uart_driver/utils.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="168"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="168"/>
+    </file>
     <file xil_pn:name="ipcore_dir/CLOCK/CLOCK.xise" xil_pn:type="FILE_COREGENISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
@@ -504,7 +530,7 @@
     <property xil_pn:name="Use Synchronous Reset" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synchronous Set" xil_pn:value="Auto" xil_pn:valueState="default"/>
     <property xil_pn:name="Use Synthesis Constraints File" xil_pn:value="true" xil_pn:valueState="default"/>
-    <property xil_pn:name="User Browsed Strategy Files" xil_pn:value="" xil_pn:valueState="default"/>
+    <property xil_pn:name="User Browsed Strategy Files" xil_pn:value="C:/Xilinx/14.7/ISE_DS/ISE/data/default.xds" xil_pn:valueState="non-default"/>
     <property xil_pn:name="UserID Code (8 Digit Hexadecimal)" xil_pn:value="0xFFFFFFFF" xil_pn:valueState="default"/>
     <property xil_pn:name="VCCAUX Voltage Level spartan6" xil_pn:value="2.5V" xil_pn:valueState="default"/>
     <property xil_pn:name="VHDL Source Analysis Standard" xil_pn:value="VHDL-93" xil_pn:valueState="default"/>

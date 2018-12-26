@@ -34,7 +34,7 @@ module dip_switch_driver(
 	input [7:0] dip_switch7
 	);
 	
-	wire [63:0] in={dip_switch7,dip_switch6,dip_switch5,dip_switch4,dip_switch3,dip_switch2,dip_switch1,dip_switch0};
+	wire [63:0] in=~{dip_switch7,dip_switch6,dip_switch5,dip_switch4,dip_switch3,dip_switch2,dip_switch1,dip_switch0};
 	
 	reg [31:0] value [1:0];
 	

@@ -39,7 +39,7 @@ module user_keys_driver(
 		if(reset)
 			value<=0;
 		else
-			value<=user_key;
+			value<=~user_key;
 	end
 	
 	
