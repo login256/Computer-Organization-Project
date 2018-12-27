@@ -17,7 +17,7 @@ module  MiniUART( ADD_I, DAT_I, DAT_O, STB_I, WE_I, CLK_I, RST_I, ACK_O, RxD, Tx
     input   [31:0]              DAT_I ;         // input data
     output  [31:0]              DAT_O ;         // output data
     input                       RST_I ;         // reset
-    input   [4:2]               ADD_I ;         // address
+    input   [7:0]               ADD_I ;         // address
     input                       STB_I ;         // strobe
     input                       WE_I ;          // write enable
     output                      ACK_O ;         // acknowledge

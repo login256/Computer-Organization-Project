@@ -8,5 +8,8 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/lyt/Documents/project/co/p8/mips/ipcore_dir/IM/IM_BlockRAM.v&quot; into library work</arg>
+</msg>
+
 </messages>
 

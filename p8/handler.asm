@@ -48,12 +48,13 @@ _main_handler:
 			sw $s1, 0($t0)
 
 			_handler_Int_while_1_begin:
-				lw $t0, 4($s0)
+				lw $t0, 16($s0)
 				andi $t0, $t0, 0x20
 				beq $t0, $0, _handler_Int_2_if_1_end
 				nop
 					sw $s1, 0($s0)
 					j _handler_Int_while_1_end
+					nop
 				_handler_Int_2_if_1_end:
 			j _handler_Int_while_1_begin
 			nop

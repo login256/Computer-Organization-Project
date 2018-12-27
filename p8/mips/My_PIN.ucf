@@ -1,19 +1,15 @@
 #**************************************************************
 # systhem clock input
 #**************************************************************
-NET "clk_in"      LOC = AF13 | IOSTANDARD = LVCMOS33;
+NET "clk_in"        LOC = AF13 | IOSTANDARD = LVCMOS33;
+
+NET "sys_rstn"      LOC = AC12 | IOSTANDARD = LVCMOS33;
 
 #**************************************************************
-# systhem reset input
+# uart interface
 #**************************************************************
-NET "sys_rstn"    LOC = AC12 | IOSTANDARD = LVCMOS33;
-
-#**************************************************************
-# clock timing
-#**************************************************************
-NET "clk_in" CLOCK_DEDICATED_ROUTE = FALSE;
-NET "clk_in" TNM_NET = "clk_in";
-TIMESPEC TS_clk_in = PERIOD "clk_in" 40 ns;
+NET "uart_rxd" LOC = AF21 | IOSTANDARD = LVCMOS33; 
+NET "uart_txd" LOC = AE21 | IOSTANDARD = LVCMOS33; 
 
 #**************************************************************
 # DIP switch
@@ -172,7 +168,8 @@ NET "digital_tube_sel0[2]"  LOC = C15  | IOSTANDARD = LVCMOS33;
 NET "digital_tube_sel0[3]"  LOC = G14  | IOSTANDARD = LVCMOS33;
 
 #**************************************************************
-# uart interface
+# clock timing
 #**************************************************************
-NET "uart_rxd" LOC = AF16 | IOSTANDARD = LVCMOS33;
-NET "uart_txd" LOC = AF15 | IOSTANDARD = LVCMOS33;
+NET "clk_in" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "clk_in" TNM_NET = "clk_in";
+TIMESPEC TS_clk_in = PERIOD "clk_in" 40 ns;

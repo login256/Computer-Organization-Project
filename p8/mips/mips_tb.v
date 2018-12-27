@@ -4,7 +4,7 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   00:53:26 12/26/2018
+// Create Date:   15:14:25 12/27/2018
 // Design Name:   mips
 // Module Name:   C:/Users/lyt/Documents/project/co/p8/mips/mips_tb.v
 // Project Name:  mips
@@ -27,6 +27,7 @@ module mips_tb;
 	// Inputs
 	reg clk_in;
 	reg sys_rstn;
+	reg uart_rxd;
 	reg [7:0] dip_switch0;
 	reg [7:0] dip_switch1;
 	reg [7:0] dip_switch2;
@@ -38,6 +39,7 @@ module mips_tb;
 	reg [7:0] user_key;
 
 	// Outputs
+	wire uart_txd;
 	wire [31:0] led_light;
 	wire [7:0] digital_tube0;
 	wire [3:0] digital_tube_sel0;
@@ -50,6 +52,8 @@ module mips_tb;
 	mips uut (
 		.clk_in(clk_in), 
 		.sys_rstn(sys_rstn), 
+		.uart_rxd(uart_rxd), 
+		.uart_txd(uart_txd), 
 		.dip_switch0(dip_switch0), 
 		.dip_switch1(dip_switch1), 
 		.dip_switch2(dip_switch2), 
@@ -72,6 +76,7 @@ module mips_tb;
 		// Initialize Inputs
 		clk_in = 0;
 		sys_rstn = 0;
+		uart_rxd = 1;
 		dip_switch0 = 32'hffffffff;
 		dip_switch1 = 32'hffffffff;
 		dip_switch2 = 32'hffffffff;
@@ -90,9 +95,29 @@ module mips_tb;
 		user_key<=~8'd1;
 		{dip_switch3,dip_switch2,dip_switch1,dip_switch0}<=~32'd123;
 		{dip_switch7,dip_switch6,dip_switch5,dip_switch4}<=~32'd124324;
+		
+		#104166.66667;
+		uart_rxd<=0;
+		#104166.66667;
+		uart_rxd<=1;
+		#104166.66667;
+		uart_rxd<=0;
+		#104166.66667;
+		uart_rxd<=1;
+		#104166.66667;
+		uart_rxd<=0;
+		#104166.66667;
+		uart_rxd<=1;
+		#104166.66667;
+		uart_rxd<=0;
+		#104166.66667;
+		uart_rxd<=1;
+		#104166.66667;
+		uart_rxd<=0;
+		#104166.66667;
+		uart_rxd<=1;
 	end
-      
-	always #20 clk_in=~clk_in;
-	  
+
+	always #20 clk_in=~clk_in;      
 endmodule
 

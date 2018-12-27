@@ -3,13 +3,13 @@
 //`define LINE_IDLE   1'b1
 //`define LINE_START  1'b0
 
-`define OFF_UART_DATA       'h0
-`define OFF_UART_IER        'h1
-`define OFF_UART_IIR        'h2
-//`define OFF_UART_LCR        'h3
-`define OFF_UART_LSR        'h4
-`define OFF_UART_DIVR       'h5
-`define OFF_UART_DIVT       'h6
+`define OFF_UART_DATA       'h10
+`define OFF_UART_IER        'h14
+`define OFF_UART_IIR        'h18
+//`define OFF_UART_LCR        'h1C
+`define OFF_UART_LSR        'h20
+`define OFF_UART_DIVR       'h24
+`define OFF_UART_DIVT       'h28
 
 /* For simulation only, the frequency of system clock is set at 100KHz.
    You must understand its frequency is too low so that only 9600 BAUD

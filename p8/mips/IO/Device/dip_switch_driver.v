@@ -36,7 +36,7 @@ module dip_switch_driver(
 	
 	wire [63:0] in=~{dip_switch7,dip_switch6,dip_switch5,dip_switch4,dip_switch3,dip_switch2,dip_switch1,dip_switch0};
 	
-	reg [31:0] value [1:0] = {0,0};
+	reg [31:0] value [1:0];
 	
 	assign Dout=	Addr==`Dev2begin+0 ? value[0] :
 					Addr==`Dev2begin+4 ? value[1] :

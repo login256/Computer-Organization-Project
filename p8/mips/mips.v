@@ -197,7 +197,7 @@ module mips(
 	
 	//Dev1
 	MiniUART MiniUART_driver (
-		.ADD_I(Dev1Addr[4:2]), 
+		.ADD_I(Dev1Addr), 
 		.DAT_I(Dev1WD),
 		.DAT_O(Dev1RD), 
 		.STB_I(Dev1WE), 
