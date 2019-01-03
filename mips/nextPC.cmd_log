@@ -1,1 +1,0 @@
-vhdtdtfi -lang verilog -prj mips -o C:/Users/lyt/Documents/project/co/p4/mips/nextPC.tfi -lib work C:/Users/lyt/Documents/project/co/p4/mips/cpu/datapath/component//nextPC.v -module nextPC -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
